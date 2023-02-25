@@ -9,6 +9,9 @@ public class ServiceRegisteryApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ServiceRegisteryApplication.class, args);
 	}
+public void getData(){
+SYstem.out.println("Added by ani");
+}
 
        public void m1(){
       
