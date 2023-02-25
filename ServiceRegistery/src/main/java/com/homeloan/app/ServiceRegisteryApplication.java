@@ -9,5 +9,7 @@ public class ServiceRegisteryApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ServiceRegisteryApplication.class, args);
 	}
-
+	public void m1(){
+		System.out.println("ABC");
+	}
 }
