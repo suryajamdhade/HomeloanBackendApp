@@ -8,7 +8,7 @@ public class ServiceRegisteryApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ServiceRegisteryApplication.class, args);
-System.out.println("Added by Aditya");	
+System.out.println("Edited by Swapnil");	
 }
 
        public void m1(){
