@@ -10,4 +10,9 @@ public class ServiceRegisteryApplication {
 		SpringApplication.run(ServiceRegisteryApplication.class, args);
 	}
 
+       public void m1(){
+      
+System.out.println("xyz");
+}
+
 }
