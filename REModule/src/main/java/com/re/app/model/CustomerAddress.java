@@ -24,7 +24,8 @@ public class CustomerAddress {
 	private int addressid;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Permanent permanent;
+	
 	@OneToOne(cascade = CascadeType.ALL)
-	private Local local;
+	private Localadd local;
 
 }

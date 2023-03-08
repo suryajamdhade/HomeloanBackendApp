@@ -1,4 +1,4 @@
-package com.re.app.model;
+	package com.re.app.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -27,7 +27,7 @@ public class Customer {
 	private long cMobileNo;
 	private long cAtrnateMobileNo;
 	private long cSelfFundingforHome;
-	private long cLoanAmtRequired;
+	private long cLoanAmtRequired;	
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerAddress cAddress;

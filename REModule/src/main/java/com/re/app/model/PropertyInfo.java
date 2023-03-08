@@ -23,7 +23,10 @@ public class PropertyInfo {
 	private String propertyType;
     private String propertyArea;
 	private double propertyPrice;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private PropertLegal propertyLegal;
+	@OneToOne(cascade = CascadeType.ALL)
 	private PropertyTechnical  propertyTechnical;
 	
 	@OneToOne(cascade = CascadeType.ALL)

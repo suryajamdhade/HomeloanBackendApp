@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Local {
+public class Localadd {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

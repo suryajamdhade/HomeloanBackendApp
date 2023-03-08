@@ -1,10 +1,12 @@
 package com.admin.app.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,16 +19,16 @@ import lombok.NoArgsConstructor;
 public class Employee {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int    eId;
-	private String eName;
-	private String eUsername;
-	private String ePassword;
-	private long   eMobileNo;
-	private int    eSalary;
-	private String eDesignation;
-	private String evintage;
+	@GeneratedValue(strategy = GenerationType.IDENTITY,generator = "Employee_seq")
+	@SequenceGenerator(initialValue = 101,allocationSize = 1, name = "Employee_seq")
+	private int    empId;
+	private String empName;
+	private String empUsername;
+	private String empPassword;
+	private long   empMobileNo;	
+	private int    empSalary;
+	private String empDesignation;
+	private String empVintage;
 	
-	@OneToMany
-	private EmployeeAddress eAddress;
+	
 }

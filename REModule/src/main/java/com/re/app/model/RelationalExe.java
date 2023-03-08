@@ -1,5 +1,7 @@
 package com.re.app.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,10 +24,10 @@ public class RelationalExe {
 	private int rId;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private EnquiryInfo enquiryInfo;
+	private List<EnquiryInfo> enquiryInfo;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private Customer customer;
+	private List<Customer> customer;
 	
 
 }
