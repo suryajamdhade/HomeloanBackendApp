@@ -1,0 +1,54 @@
+package com.admin.app.servieImpl;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.admin.app.model.Employee;
+import com.admin.app.repository.AdminRepository;
+import com.admin.app.service.AdminService;
+
+@Service
+public class AdminServiceImpl implements AdminService{
+
+	@Autowired
+	private AdminRepository adminRepository;
+	
+	
+	@Override
+	public Employee addemployee(Employee employee) {
+	
+		return adminRepository.save(employee);
+		
+	}
+
+
+	@Override //it is generic type that can be used to represent a response with any type of response body [line 30]
+	          //type parameter <?> can be replaced with any type..    
+	public ResponseEntity<?> getEmployeeById(int empId) {
+		
+	 Optional<Employee> empFindById = adminRepository.findById(empId);
+		if (empFindById.isPresent()) {
+			
+			return   ResponseEntity.ok(empFindById.get());
+		}
+		else {
+			return ResponseEntity.badRequest().body("Employee with Id "+empId+" does not exist");
+		}
+		  
+	}
+
+
+	@Override
+	public void deleteEmployee(int id) {
+	 
+		adminRepository.deleteById(id);
+		
+	}
+
+	
+	
+}
