@@ -35,7 +35,7 @@ public class EnquiryController {
 //	@GetMapping("/get-enquiry/{enid}")
 //	public ResponseEntity<EnquiryInfo> getEnquiryInfo(@PathVariable int enid) {
 //		// argument response (line 38) should be relatively match while returning (line
-//		// 43)
+//		// 43)x
 //
 //		EnquiryInfo getenquiry = enquiryservice.getenquiry(enid);
 //
