@@ -1,28 +1,30 @@
-package com.re.app.model;
+package com.cm.app.model;
 
-import javax.persistence.Entity;	
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
-
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SalariedTypeDocs extends AllDocuments {
+public class SalariedTypeDocs {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private int salTDId;
-	@Lob
+	private byte[] addressProof;
+	private byte[] itr;
+	private byte[] adharCard;
+	private byte[] panCard;
+	private byte[] photo;
+	private byte[] signature;
+	private byte[] bankCheque;
 	private byte[] salarySlips;
+	private byte[] accountStatement;
 }

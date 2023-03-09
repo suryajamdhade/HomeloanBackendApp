@@ -1,6 +1,6 @@
-	package com.re.app.model;
+package com.cm.app.model;
 
-import javax.persistence.CascadeType;	
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,10 +27,13 @@ public class Customer {
 	private long cMobileNo;
 	private long cAtrnateMobileNo;
 	private long cSelfFundingforHome;
-	private long cLoanAmtRequired;	
+	private long cLoanAmtRequired;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerAddress cAddress;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private AllPersonalDocs cAllPersonalDocs;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private ProfessionType cProfession;

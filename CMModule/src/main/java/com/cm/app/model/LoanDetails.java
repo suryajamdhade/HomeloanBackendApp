@@ -1,4 +1,4 @@
-package com.re.app.model;
+package com.cm.app.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,15 +9,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Data
 @Entity
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class BusinessTypeDocs extends AllDocuments{
-
+@NoArgsConstructor
+public class LoanDetails {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-    private int documentID;
-	private byte[] GST;
+	private int id;
+
 }
