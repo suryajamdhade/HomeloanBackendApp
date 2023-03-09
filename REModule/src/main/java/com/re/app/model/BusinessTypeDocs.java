@@ -14,18 +14,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class BusinessTypeDocs {
+public class BusinessTypeDocs extends AllDocuments{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private int documentID;
-	private byte[] addressProof;
-	private byte[] itr;
-	private byte[] adharCard;
-	private byte[] panCard;
-	private byte[] photo;
-	private byte[] signature;
-	private byte[] bankCheque;
 	private byte[] GST;
-	private byte[] accountStatement;
 }
