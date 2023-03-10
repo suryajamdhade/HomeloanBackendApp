@@ -10,6 +10,8 @@ public interface LoanApplicationRepository extends JpaRepository<LoanApplication
 
 	 LoanApplication getByCustomerId(int customerId);
 
-	void updateStatus(String status);
+	
+
+	 
 
 }

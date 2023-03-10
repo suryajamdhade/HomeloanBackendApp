@@ -50,12 +50,14 @@ public class CreditManagerServiceImpl implements CreditManagerService {
 	}
 
 	@Override
-	public void approveOrDenyLoan(boolean isApproved) {
+	public void approveOrDenyLoan(int customerId, boolean isApproved) {
+		
+		LoanApplication byCustomerId = loanApplicationRepository.getByCustomerId(customerId);
 		
 		if(isApproved) {
-			loanApplicationRepository.updateStatus("Approved");
+			byCustomerId.setStatus("Approved");
 		}else {
-			loanApplicationRepository.updateStatus("Rejected");
+			byCustomerId.setStatus("Rejected");
 		}
 		
 	}
