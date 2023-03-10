@@ -22,9 +22,9 @@ public class LoanApplication {
 	private int id;
 
 	
-	private Long customerId;
+	private int customerId;
 
-	private Long propertyId;
+	private int propertyId;
 
 	private double loanAmount;
 
@@ -32,14 +32,13 @@ public class LoanApplication {
 
 	private int term;
 
-	private String status;
+	private String status; //Pending, In Review, Approved, Rejected, Disbursed, Closed, Default.
 
 	private String dateSubmitted;
 
 	private String dateApproved;
 
 	private Long loanOfficerId;
-
 
 	private int creditScore;
 
