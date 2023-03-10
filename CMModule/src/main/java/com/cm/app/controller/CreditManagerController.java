@@ -32,9 +32,11 @@ public class CreditManagerController {
 	}
 
 	@PutMapping("/loan-applications/{applicationId}")
-	public ResponseEntity<Void> approveOrDenyLoan(@PathVariable int applicationId, @RequestParam boolean isApproved) {
-		creditManagerService.approveOrDenyLoan(isApproved);
+	public ResponseEntity<Void> approveOrDenyLoan(@PathVariable int customerId, @RequestParam boolean isApproved) {
+		creditManagerService.approveOrDenyLoan(customerId, isApproved);
 		return ResponseEntity.ok().build();
 	}
+
+	
 
 }

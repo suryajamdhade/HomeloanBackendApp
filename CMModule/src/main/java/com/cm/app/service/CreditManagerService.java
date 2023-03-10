@@ -6,7 +6,7 @@ public interface CreditManagerService {
 
 	String updateCreditScore(int customerId, int creditScore);
 
-	void approveOrDenyLoan(boolean isApproved);
+	void approveOrDenyLoan(int customerId, boolean isApproved);
 
 	
 }
