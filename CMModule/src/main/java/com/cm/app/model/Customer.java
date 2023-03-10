@@ -11,9 +11,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Entity
 @NoArgsConstructor
+@Data
 @AllArgsConstructor
 public class Customer {
 
@@ -48,7 +48,7 @@ public class Customer {
 	private Cibil cCibil;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	private LoanDetails cLoanDetails;
+	private LoanApplication cLoanApplication;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private ExistingLoan cExisitngLoan;
