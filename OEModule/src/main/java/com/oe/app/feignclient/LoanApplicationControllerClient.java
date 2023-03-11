@@ -11,7 +11,7 @@ import com.oe.app.model.LoanApplication;
 
 
 @FeignClient(name = "loan-application-client", url = "http://localhost:4000/loan-applications")
-public interface LoanApplicationClient {
+public interface LoanApplicationControllerClient {
 
 	@GetMapping("/{id}")
     public ResponseEntity<LoanApplication> getLoanApplicationById(@PathVariable int id);

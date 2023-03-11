@@ -50,7 +50,7 @@ public class CreditManagerServiceImpl implements CreditManagerService {
 	}
 
 	@Override
-	public void approveOrDenyLoan(int customerId, boolean isApproved) {
+	public void approveOrRejectLoan(int customerId, boolean isApproved) {
 		
 		LoanApplication byCustomerId = loanApplicationRepository.getByCustomerId(customerId);
 		

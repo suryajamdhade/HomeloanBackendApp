@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+
 
 @Setter
 @Getter
@@ -20,9 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SalariedTypeDocs extends AllDocuments {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-    private int salTDId;
+	
 	@Lob
 	private byte[] salarySlips;
 }
