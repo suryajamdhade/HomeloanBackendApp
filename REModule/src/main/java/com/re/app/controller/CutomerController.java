@@ -22,7 +22,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.re.app.dto.DocumentDTO;
 import com.re.app.model.AccountDetails;
 import com.re.app.model.AllDocuments;
+import com.re.app.model.BusinessProfession;
 import com.re.app.model.Customer;
+import com.re.app.model.ProfessionType;
+import com.re.app.model.SalariedProfession;
 import com.re.app.model.SalariedTypeDocs;
 import com.re.app.repository.CustomerRepository;
 //import com.re.app.service.CustomerService;
@@ -43,9 +46,9 @@ public class CutomerController {
 		return new ResponseEntity<>(customers, HttpStatus.OK);
 	}
 
-	@GetMapping("/{cId}")
-	public ResponseEntity<Customer> getCustomerById(@PathVariable int cId) {
-		Customer customer = customerService.getCustomerById(cId);
+	@GetMapping("/{custId}")
+	public ResponseEntity<Customer> getCustomerById(@PathVariable int custId) {
+		Customer customer = customerService.getCustomerById(custId);
 		if (customer != null) {
 			return new ResponseEntity<>(customer, HttpStatus.OK);
 		} else {
@@ -59,7 +62,7 @@ public class CutomerController {
 		return new ResponseEntity<>(newCustomer, HttpStatus.CREATED);
 	}
 
-	@PutMapping("/update-customer")
+	@PutMapping
 	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
 		
 		Customer addCustomer = customerService.addCustomer(customer);
@@ -89,30 +92,38 @@ public class CutomerController {
 		
 	}
 	
-	
-	
-	
-	
-//	@GetMapping("/email/{cEmail}")
-//	public ResponseEntity<Customer> getCustomerByEmail(@PathVariable String cEmail) {
-//		Customer customer = customerService.getCustomerByEmail(cEmail);
-//		if (customer != null) {
-//			return new ResponseEntity<>(customer, HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		}
-//	}
-//	
-//	@GetMapping("/name/{cName}")
-//	public ResponseEntity<List<Customer>> getCustomersByName(@PathVariable String cName) {
-//		List<Customer> customers = customerService.getCustomersByName(cName);
-//		if (customers.isEmpty()) {
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		} else {
-//			return new ResponseEntity<>(customers, HttpStatus.OK);
-//		}
-//	}
-//	
-	
 
-}
+	@GetMapping("/email")
+	public ResponseEntity<Customer> getCustomerByEmail(@RequestParam String custEmail) {
+		Customer customer = customerService.getCustomerByEmail(custEmail);
+		if (customer != null) {
+			return new ResponseEntity<>(customer, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/name")
+	public ResponseEntity<List<Customer>> getCustomersByName(@RequestParam String custName) {
+		List<Customer> customers = customerService.getCustomersByName(custName);
+		if (customers.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(customers, HttpStatus.OK);
+		}
+	}
+	
+	@PostMapping("/{custId}/setProfessionDetails")
+	public ResponseEntity<Customer> setProfessionDetails(
+	    @PathVariable int custId,
+	    @RequestParam String professionType,
+	    @RequestBody(required = false) SalariedProfession salariedProfession,
+	    @RequestBody(required = false) BusinessProfession businessProfession) {
+		
+		customerService.setProfessionDetails(custId, professionType, salariedProfession, businessProfession);
+			return null;
+
+	}
+	}
+
+

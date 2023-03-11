@@ -10,10 +10,11 @@ import com.re.app.model.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer>{
+	
+	
+	List<Customer> getAllByCustName(String custName);
 
-	//List<Customer> getAllByCname(String cName);
-
-	//Customer getByCemail(String cEmail);
+	Customer getByCustEmail(String custEmail);
 	
 	
 }

@@ -20,11 +20,11 @@ public class BusinessProfession {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int pId;
-	private double pBIncome;
-	private String pBVintage;
-	private String pBStatus;
-	private String pBSegment;
+	private int id;
+	private double income;
+	private String experience;
+	private String status;
+	private String segment;
 	
 	
 }

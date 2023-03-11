@@ -17,14 +17,14 @@ public class AccountDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int accountId;
-	private String bankName;
-	private Double accountNO;
-	private String accountHolderName;
-	private String accountType;
-	private String accountStatus;
-	private String branchName;
-	private String branchifscCode;
+	private int id;
+	private String accBankName;
+	private Double accNO;
+	private String accHolderName;
+	private String accType;
+	private String accStatus;
+	private String accBranchName;
+	private String accBranchifscCode;
 	
 
 }

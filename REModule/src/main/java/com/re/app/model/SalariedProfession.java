@@ -17,9 +17,9 @@ public class SalariedProfession {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int pId;
-	private double pSalary;
-	private String psalaryType;
-	private String pVintage;
-	private String pDesignation;
+	private int id;
+	private double salary;
+	private String type;
+	private String experience;
+	private String designation;
 }
