@@ -16,14 +16,14 @@ import lombok.NoArgsConstructor;
 public class GuarantorDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int gid;
-	private String gName;
-	private String gDateofBirth;
-	private String gRelationshipwithCustomer;
-	private double gMobNo;
-	private double gAdharCardNo;
-	private String gMortgageDetails;
-	private String gloaclAddress;
-	private String gPermanentAddress;
+	private int guaId;
+	private String guaName;
+	private String guaDOB;
+	private String guaRelationshipwithCustomer;
+	private double guaMobileNo;
+	private double guaAadharCardNo;
+	private String guaMortgauageDetails;
+	private String guaLocalDetails;
+	private String guaPermanentDetails;
 
 }

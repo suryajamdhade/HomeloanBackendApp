@@ -1,9 +1,11 @@
 package com.re.app.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +27,9 @@ public class CoApplicantDetails {
 	private long coa_MobileNo;
 	private long coa_altrnateMobileNo;
 	private String coa_RelationshipWithCustomer;
+	private String coaLoaclAddress;
+	private String coaPermanentAddress;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	private CoApplicantDocs applicantDocs;
 }

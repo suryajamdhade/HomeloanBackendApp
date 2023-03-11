@@ -17,8 +17,8 @@ public class Permanent {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int la_Id;
-	private int la_Houseno;
+	private int perAddId;
+	private int perAddHouseno;
 	private String la_Landamrk;
 	private String la_Areaname;
 	private String la_District;

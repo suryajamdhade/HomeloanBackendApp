@@ -26,7 +26,5 @@ public class AccountDetails {
 	private String branchName;
 	private String branchifscCode;
 	
-	@Lob
-	private byte[] accountStatement;
 
 }

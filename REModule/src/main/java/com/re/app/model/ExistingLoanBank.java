@@ -28,8 +28,9 @@ public class ExistingLoanBank {
 	private String exlMICRcode;
 	private double exlConatctNO;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private BankAddress exlBranchAddress;
+	private String bankbCity;
+	private int    bankPincode;
+	private String bState;
 	
 	private String exlEmail;
 	private String exlstatus;

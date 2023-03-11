@@ -19,24 +19,28 @@ public class CreditManagerController {
 	@Autowired
 	private CreditManagerService creditManagerService;
 
+	//get credit score from third-party API
 	@GetMapping("/credit-score/{customerId}")
 	public ResponseEntity<Integer> getCreditScore(@PathVariable int customerId) {
 		int creditScore = creditManagerService.getCreditScore(customerId);
 		return ResponseEntity.ok(creditScore);
 	}
 
+	//update credit score in the database
 	@PostMapping("/credit-score/{customerId}")
 	public ResponseEntity<Integer> updateCreditScore(@PathVariable int customerId, @RequestParam int creditScore) {
 		creditManagerService.updateCreditScore(customerId, creditScore);
 		return ResponseEntity.ok(creditScore);
 	}
 
+	//approve or reject loan
 	@PutMapping("/loan-applications/{applicationId}")
-	public ResponseEntity<Void> approveOrDenyLoan(@PathVariable int customerId, @RequestParam boolean isApproved) {
-		creditManagerService.approveOrDenyLoan(customerId, isApproved);
+	public ResponseEntity<Void> approveOrRejectLoan(@PathVariable int customerId, @RequestParam boolean isApproved) {
+		creditManagerService.approveOrRejectLoan(customerId, isApproved);
 		return ResponseEntity.ok().build();
 	}
 
+	
 	
 
 }

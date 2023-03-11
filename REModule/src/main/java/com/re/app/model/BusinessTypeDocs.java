@@ -11,13 +11,10 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class BusinessTypeDocs extends AllDocuments{
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-    private int documentID;
+	
 	private byte[] GST;
 }
