@@ -2,8 +2,12 @@ package com.re.app.service;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.re.app.model.AccountDetails;
+import com.re.app.model.BusinessProfession;
 import com.re.app.model.Customer;
+import com.re.app.model.SalariedProfession;
 
 public interface CustomerService {
 
@@ -18,12 +22,10 @@ public interface CustomerService {
 
 	AccountDetails setAccountDetails(AccountDetails accountDetails);
 
-	
+	Customer getCustomerByEmail(String cEmail);
 
+	List<Customer> getCustomersByName(String cName);
 
-
-	//Customer getCustomerByEmail(String cEmail);
-
-	//List<Customer> getCustomersByName(String cName);
+	public ResponseEntity<Customer> setProfessionDetails(int custId, String professionType, SalariedProfession salariedProfession, BusinessProfession businessProfession);
 
 }
