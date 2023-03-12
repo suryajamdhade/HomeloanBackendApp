@@ -2,6 +2,7 @@ package com.re.app.service;
 
 
 import com.re.app.model.AccountDetails;
+
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,7 @@ public interface CustomerService {
 	List<Customer> getCustomersByName(String cName);
 
 	public ResponseEntity<Customer> setProfessionDetails(int custId, String professionType, SalariedProfession salariedProfession, BusinessProfession businessProfession);
+
 
 
 }

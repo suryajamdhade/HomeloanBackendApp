@@ -15,9 +15,12 @@ import lombok.Setter;
 
 
 
+
 @Setter
 @Getter
 @Entity
+
+@Data
 
 @Data
 
@@ -26,12 +29,12 @@ import lombok.Setter;
 public class BusinessTypeDocs extends AllDocuments{
 
 
+
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.AUTO)
 //    private int documentID;
 	@Lob
 
 	
-
 	private byte[] GST;
 }

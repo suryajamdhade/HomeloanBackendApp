@@ -17,6 +17,7 @@ import lombok.Setter;
 public class SalariedTypeDocs extends AllDocuments {
 
 
+
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.AUTO)
 //    private int salTDId;

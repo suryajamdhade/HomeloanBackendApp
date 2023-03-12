@@ -1,6 +1,7 @@
 package com.re.app.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,20 @@ import com.re.app.model.Customer;
 import com.re.app.model.ExistingLoan;
 import com.re.app.model.ExistingLoanBank;
 import com.re.app.model.SalariedProfession;
+
+import com.re.app.dto.DocumentDTO;
+import com.re.app.model.AccountDetails;
+import com.re.app.model.AllDocuments;
+import com.re.app.model.BusinessProfession;
+import com.re.app.model.Customer;
+import com.re.app.model.EnquiryInfo;
+import com.re.app.model.ExistingLoan;
+import com.re.app.model.ExistingLoanBank;
+import com.re.app.model.ProfessionType;
+import com.re.app.model.SalariedProfession;
+import com.re.app.model.SalariedTypeDocs;
+import com.re.app.repository.CustomerRepository;
+
 //import com.re.app.service.CustomerService;
 import com.re.app.service.CustomerService;
 import com.re.app.service.ExistingLoanBankService;
@@ -183,8 +198,5 @@ public class CutomerController {
 	}
 
 	// Added for ExistingLoan-ends
-
-
-
 
 }

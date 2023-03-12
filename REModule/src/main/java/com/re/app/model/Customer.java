@@ -33,6 +33,7 @@ public class Customer {
 	private long custSelfFundingforHome;
 	private long custLoanAmtRequired;	
 
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerAddress cAddress;
 
@@ -63,5 +64,33 @@ public class Customer {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private PropertyInfo cPropertyInfo;
+
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private CustomerAddress cAddress;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private ProfessionType custProfession;
+
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private CoApplicantDetails cCoApplicantDetails;
+//
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private GuarantorDetails cGuarantorDetails;
+//
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private Cibil cCibil;
+//
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private LoanDetails cLoanDetails;
+////
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private ExistingLoan cExisitngLoan;
+//
+//
+	@OneToOne(cascade = CascadeType.ALL)
+	private AccountDetails custAccountDetails;
+
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private PropertyInfo cPropertyInfo;
 
 }
