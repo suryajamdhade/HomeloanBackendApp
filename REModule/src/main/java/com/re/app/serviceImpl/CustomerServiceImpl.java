@@ -1,5 +1,16 @@
 package com.re.app.serviceImpl;
 
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.re.app.model.AccountDetails;
+import com.re.app.repository.AccountRepository;
+import com.re.app.repository.CustomerRepository;
+import com.re.app.service.CustomerService;
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -102,5 +113,5 @@ public class CustomerServiceImpl implements CustomerService{
 		    }
 	}
 
-	
+
 }

@@ -1,4 +1,4 @@
-package com.re.app.controller;
+																																																																																																			package com.re.app.controller;
 
 import java.util.List;
 
@@ -32,16 +32,6 @@ public class EnquiryController {
 	}
 	
 	
-//	@GetMapping("/get-enquiry/{enid}")
-//	public ResponseEntity<EnquiryInfo> getEnquiryInfo(@PathVariable int enid) {
-//		// argument response (line 38) should be relatively match while returning (line
-//		// 43)x
-//
-//		EnquiryInfo getenquiry = enquiryservice.getenquiry(enid);
-//
-//		return new ResponseEntity<EnquiryInfo>(getenquiry, HttpStatus.OK);
-//
-//	}
     
 	@GetMapping("/get-enquiry/{enid}")
 	public ResponseEntity<?>getEnquiryInfo(@PathVariable int enid){

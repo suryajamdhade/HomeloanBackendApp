@@ -8,5 +8,7 @@ import com.admin.app.model.Employee;
 @Repository
 public interface AdminRepository extends JpaRepository<Employee, Integer> {
 
+//	void saveEmployeeByempId(int id);
+
 	
 }
