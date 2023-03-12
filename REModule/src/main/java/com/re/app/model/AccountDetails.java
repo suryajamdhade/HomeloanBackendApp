@@ -19,12 +19,12 @@ public class AccountDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int accountId;
 	private String bankName;
-	private Double accountNO;
-	private String accountHolderName;
-	private String accountType;
-	private String accountStatus;
-	private String branchName;
-	private String branchifscCode;
+//	private Double accountNO;
+//	private String accountHolderName;
+//	private String accountType;
+//	private String accountStatus;
+//	private String branchName;
+//	private String branchifscCode;
 	
 	@Lob
 	private byte[] accountStatement;

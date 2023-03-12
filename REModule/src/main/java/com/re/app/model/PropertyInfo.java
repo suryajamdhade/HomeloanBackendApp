@@ -26,6 +26,7 @@ public class PropertyInfo {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private PropertLegal propertyLegal;
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private PropertyTechnical  propertyTechnical;
 	
