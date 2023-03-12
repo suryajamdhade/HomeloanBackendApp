@@ -13,9 +13,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
+
+
 public class AllDocuments {
 	
 	@Id

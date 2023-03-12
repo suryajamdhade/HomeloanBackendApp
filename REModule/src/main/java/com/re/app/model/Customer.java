@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;	
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,24 +23,26 @@ public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int cId;
-	private String cName;
-	private String cDOB;
-	private int cAge;
-	private String cEmail;
-	private long cMobileNo;
-	private long cAtrnateMobileNo;
-	private long cSelfFundingforHome;
-	private long cLoanAmtRequired;	
+	private int custId;
+	private String custName;
+	private String custDOB;
+	private int custAge;
+	private String custEmail;
+	private long custMobNo;
+	private long custAltMobNo;
+	private long custSelfFundingforHome;
+	private long custLoanAmtRequired;	
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerAddress cAddress;
+
 	
 	@OneToMany(cascade = CascadeType.ALL)
     private List<AllDocuments> alldocs;
-
+	
 	@OneToOne(cascade = CascadeType.ALL)
-	private ProfessionType cProfession;
+	private ProfessionType custProfession;
+
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private CoApplicantDetails cCoApplicantDetails;
@@ -50,14 +53,13 @@ public class Customer {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Cibil cCibil;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	private LoanDetails cLoanDetails;
-
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private ExistingLoan cExisitngLoan;
 
+
 	@OneToOne(cascade = CascadeType.ALL)
-	private AccountDetails cAccountDetails;
+	private AccountDetails custAccountDetails;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private PropertyInfo cPropertyInfo;

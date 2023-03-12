@@ -32,6 +32,7 @@ public class PropertyInfo {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private PropertyAddress propertyAddress;
+	
 }
 
 

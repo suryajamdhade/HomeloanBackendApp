@@ -20,9 +20,11 @@ public class ProfessionType {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int pid;
+	private int id;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private SalariedProfession SalariedProfession;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private BusinessProfession BusinessProfession;
 }

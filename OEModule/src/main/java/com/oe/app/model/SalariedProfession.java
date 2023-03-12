@@ -1,4 +1,4 @@
-package com.re.app.model;
+package com.oe.app.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,15 +13,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BankAddress {
+public class SalariedProfession {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int bAddId;
-	private String bLandmark;
-	private String bAreaname;
-	private String bCity;
-	private int    bPincode;
-	private String bState;
+	private int pId;
+	private double pSalary;
+	private String psalaryType;
+	private String pVintage;
+	private String pDesignation;
 }

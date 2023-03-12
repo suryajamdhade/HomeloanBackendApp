@@ -14,16 +14,24 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+
 @Setter
 @Getter
 @Entity
+
+@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 public class BusinessTypeDocs extends AllDocuments{
+
 
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.AUTO)
 //    private int documentID;
 	@Lob
+
+	
+
 	private byte[] GST;
 }
