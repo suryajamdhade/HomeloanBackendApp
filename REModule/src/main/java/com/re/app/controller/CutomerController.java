@@ -23,6 +23,7 @@ import com.re.app.dto.DocumentDTO;
 import com.re.app.model.AccountDetails;
 import com.re.app.model.AllDocuments;
 import com.re.app.model.BusinessProfession;
+import com.re.app.model.CoApplicantDetails;
 import com.re.app.model.Customer;
 import com.re.app.model.ProfessionType;
 import com.re.app.model.SalariedProfession;
@@ -122,8 +123,27 @@ public class CutomerController {
 		
 		customerService.setProfessionDetails(custId, professionType, salariedProfession, businessProfession);
 			return null;
-
 	}
+			
+	
+	//adding co applicant details
+	
+	@PostMapping("/{custId}/addCoApplicantDetails")
+			public ResponseEntity<CoApplicantDetails> addCoApplicantDetails(@PathVariable int custId,  @RequestBody CoApplicantDetails coApplicantDetails) {
+				CoApplicantDetails newCoApplicantDetails = customerService.setCoApplicantDetails(custId, coApplicantDetails);
+				return new ResponseEntity<>(newCoApplicantDetails, HttpStatus.CREATED);
+			}
+
+			@PutMapping
+			public ResponseEntity<CoApplicantDetails> updateCoApplicantDetails(@RequestBody CoApplicantDetails coApplicantDetails) {
+				
+				CoApplicantDetails addCoApplicantDetails = customerService.updateCoApplicantDetails(coApplicantDetails);
+				
+				return new ResponseEntity<>(addCoApplicantDetails, HttpStatus.OK);
+			}
+
+			
+
 	}
 
 

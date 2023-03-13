@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.re.app.model.AccountDetails;
 import com.re.app.model.BusinessProfession;
+import com.re.app.model.CoApplicantDetails;
 import com.re.app.model.Customer;
 import com.re.app.model.SalariedProfession;
 
@@ -28,4 +29,9 @@ public interface CustomerService {
 
 	public ResponseEntity<Customer> setProfessionDetails(int custId, String professionType, SalariedProfession salariedProfession, BusinessProfession businessProfession);
 
+	CoApplicantDetails setCoApplicantDetails(int custId, CoApplicantDetails coApplicantDetails);
+	CoApplicantDetails getCoApplicantDetails(CoApplicantDetails coApplicantDetails);
+	CoApplicantDetails updateCoApplicantDetails(CoApplicantDetails coApplicantDetails);
+	
+	
 }
