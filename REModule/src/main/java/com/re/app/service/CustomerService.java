@@ -1,5 +1,8 @@
 package com.re.app.service;
 
+
+import com.re.app.model.AccountDetails;
+
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -29,9 +32,14 @@ public interface CustomerService {
 
 	public ResponseEntity<Customer> setProfessionDetails(int custId, String professionType, SalariedProfession salariedProfession, BusinessProfession businessProfession);
 
+<<<<<<< HEAD
 	CoApplicantDetails setCoApplicantDetails(int custId, CoApplicantDetails coApplicantDetails);
 	CoApplicantDetails getCoApplicantDetails(CoApplicantDetails coApplicantDetails);
 	CoApplicantDetails updateCoApplicantDetails(CoApplicantDetails coApplicantDetails);
 	
 	
+=======
+
+
+>>>>>>> 81d5a1d40aaa75423d51ffdb27d6c12233fd2c3d
 }

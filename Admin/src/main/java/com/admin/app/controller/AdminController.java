@@ -37,7 +37,7 @@ public class AdminController {
 	}
 	
 	@PutMapping("/update-employee")
-	public ResponseEntity<Employee>updateEmployee(@RequestBody Employee employee ){
+	public ResponseEntity<Employee>updateEmployee(@RequestBody Employee employee){
 		
 		Employee updatedemployee = adminservice.addemployee(employee);
 		return new ResponseEntity<Employee>(updatedemployee	,HttpStatus.CREATED);

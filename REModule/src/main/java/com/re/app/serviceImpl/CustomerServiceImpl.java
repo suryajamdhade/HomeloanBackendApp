@@ -1,5 +1,16 @@
 package com.re.app.serviceImpl;
 
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.re.app.model.AccountDetails;
+import com.re.app.repository.AccountRepository;
+import com.re.app.repository.CustomerRepository;
+import com.re.app.service.CustomerService;
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -107,6 +118,7 @@ public class CustomerServiceImpl implements CustomerService{
 		    }
 	}
 
+<<<<<<< HEAD
 	@Override
 	public CoApplicantDetails setCoApplicantDetails(int custId, CoApplicantDetails coApplicantDetails) {
 		
@@ -138,4 +150,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	
+=======
+
+>>>>>>> 81d5a1d40aaa75423d51ffdb27d6c12233fd2c3d
 }

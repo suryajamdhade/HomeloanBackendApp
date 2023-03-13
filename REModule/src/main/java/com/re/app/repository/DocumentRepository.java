@@ -7,4 +7,5 @@ import com.re.app.model.AllDocuments;
 @Repository
 public interface DocumentRepository extends JpaRepository<AllDocuments, Integer> {
 
+
 }

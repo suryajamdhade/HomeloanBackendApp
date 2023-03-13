@@ -1,5 +1,6 @@
 package com.re.app.controller;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.re.app.dto.DocumentDTO;
-
 import com.re.app.service.DocumentService;
 
 @RestController
@@ -24,67 +24,72 @@ public class DocumentController {
 	@Autowired
 	private DocumentService documentservice;
 
-	@PostMapping("/upload-documents/{id}")
+	
+	@PostMapping("/upload-documents")
 	public ResponseEntity<String> SetDocuments(@RequestParam String type, @RequestPart MultipartFile addressProof,
 			@RequestPart MultipartFile itr, @RequestPart MultipartFile adharCard, @RequestPart MultipartFile panCard,
-			@RequestPart MultipartFile photo, @RequestPart MultipartFile signature,
-			@RequestPart MultipartFile bankCheque, @RequestPart MultipartFile salarySlips,
-			@RequestPart MultipartFile accountStatement, @RequestPart MultipartFile GST) {
+			@RequestPart MultipartFile photo, @RequestPart MultipartFile signature,@RequestPart(required = false)  MultipartFile  salarySlips,
+			@RequestPart MultipartFile bankCheque, @RequestPart(required = false) MultipartFile GST,
+			@RequestPart MultipartFile accountStatement) throws IOException {
 
 		List<MultipartFile> files = Arrays.asList(addressProof, itr, adharCard, panCard, photo, signature, bankCheque,
-				salarySlips, accountStatement, GST);
+				 accountStatement);
 		for (MultipartFile file : files) {
 			if (file.getSize() == 0) {
-				return ResponseEntity.badRequest().body("File is Empty");
+				return ResponseEntity.badRequest().body("File is Empty"); //tested
 
 			}
 			if (!Arrays.asList("image/jpeg", "image/png", "application/pdf").contains(file.getContentType())) {
 				return ResponseEntity.badRequest().body("Invalid File Type");
 			}
 
-			if (file.getSize() > 5 * 1024 * 1024) {
+			if (file.getSize() > 5*1024 * 1024) {
 				return ResponseEntity.badRequest().body("File size should not exceed 5MB");
 			}
 
 		}
-		DocumentDTO doc = new DocumentDTO();
-		doc.setAddressProof(doc.getAddressProof());
-		doc.setItr(doc.getItr());
-		doc.setAdharCard(doc.getAdharCard());
-		doc.setPanCard(doc.getPanCard());
-		doc.setPhoto(doc.getPhoto());
-		doc.setBankCheque(doc.getBankCheque());
-		doc.setSignature(doc.getSignature());
-		doc.setAccountStatement(doc.getAccountStatement());
+		DocumentDTO doc = new DocumentDTO(); // here, we are creating object of DTO class the reason being DTO provides flexibility 
+		// and allows different parts of the application to evolve or operate independently of each other i.e required fields we can opt as per requirement
+		// as inheritance concept makes code more complex and does not provide flexibility like DTO we mostly adopting DTO here.
+		doc.setAddressProof(addressProof.getBytes());
+		doc.setItr(itr.getBytes());
+		doc.setAdharCard(adharCard.getBytes());	
+		doc.setPanCard(panCard.getBytes());
+		doc.setPhoto(photo.getBytes());
+		doc.setBankCheque(signature.getBytes());
+		doc.setSignature(bankCheque.getBytes());
+		doc.setAccountStatement(accountStatement.getBytes());
+        if (type == null || type.trim().isEmpty()) {
+			return ResponseEntity.badRequest().body("Document type is required");  //tested
 
-		if (type == null || type.trim().isEmpty()) {
-			return ResponseEntity.badRequest().body("Document type is required");
-
+			
 		}
 
 		if (!type.equals("SalariedTypeDocs") && !type.equals("BusinessTypeDocs")) {
 
-			return ResponseEntity.badRequest().body("Invalid Document Type");
+			return ResponseEntity.badRequest().body("Invalid Document Type");       //tested
 		}
 
 		if (type.equals("SalariedTypeDocs")) {
-
-			if (addressProof.getSize() == 0 || itr.getSize() == 0 || adharCard.getSize() == 0 || panCard.getSize() == 0
-					|| photo.getSize() == 0 || bankCheque.getSize() == 0 || signature.getSize() == 0
-					|| accountStatement.getSize() == 0 || salarySlips.getSize() == 0) {
-				return ResponseEntity.badRequest().body("All fields are required for Salaried documents");
+            // salaried Documents
+			if (salarySlips.getSize() == 0) {
+				return ResponseEntity.badRequest().body("Salary Slip is mandatory for Salaried Segment ");  //tested
 			}
-			doc.setSalarySlips(doc.getSalarySlips());
+			if (GST!=null) {
+				 return ResponseEntity.badRequest().body("GST document is not applicable in Salaried type");
+			}
+			doc.setSalarySlips(salarySlips.getBytes());
 			documentservice.uploadSalariedDocuments(doc);
 		} else if(type.equals("BusinessTypeDocs")) { 
 			// businessDocuments
 			
-			if (addressProof.getSize() == 0 || itr.getSize() == 0 || adharCard.getSize() == 0 || panCard.getSize() == 0
-					|| photo.getSize() == 0 || bankCheque.getSize() == 0 || signature.getSize() == 0
-					|| accountStatement.getSize() == 0 || GST.getSize() == 0) {
-				return ResponseEntity.badRequest().body("All fields are required for Business documents");
+			if (GST.getSize() == 0 ) {
+				return ResponseEntity.badRequest().body("GST certificate is mandatory for Business Segment");
 			}
-			doc.setGST(doc.getGST());
+			if (salarySlips!=null) {
+				 return ResponseEntity.badRequest().body("SalarysSlip document is not applicable in business Type");
+			}
+			doc.setGST(GST.getBytes());
 			documentservice.uploadBusinessDocuments(doc);
 
 		}
