@@ -24,9 +24,15 @@ public class CreditManagerController {
 	private String updateCreditScore;
 
 	//get credit score from third-party API
+<<<<<<< HEAD
 	@GetMapping("/credit-score/{custId}")
 	public ResponseEntity<Integer> getCreditScore(@PathVariable int custId) {
 		int creditScore = creditManagerService.getCreditScore(custId);
+=======
+	@GetMapping("/{customerId}")
+	public ResponseEntity<Integer> getCreditScore(@PathVariable int customerId) {
+		int creditScore = creditManagerService.getCreditScore(customerId);
+>>>>>>> eeafaeb0f0d9374090ca219c64108942d33ae981
 		return ResponseEntity.ok(creditScore);
 	}
 

@@ -1,4 +1,4 @@
-package com.re.app.controller;
+																																																																																																			package com.re.app.controller;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class EnquiryController {
 	@Autowired
 	private EnquiryService enquiryservice;
 
-	@PostMapping("/insert-enquiry")
+	@PostMapping
 	public ResponseEntity<EnquiryInfo> initiateEnquiryInfo(@RequestBody EnquiryInfo enquiryinfo) {
 
 		enquiryservice.saveEnquiryInfo(enquiryinfo);
@@ -32,24 +32,14 @@ public class EnquiryController {
 	}
 	
 	
-//	@GetMapping("/get-enquiry/{enid}")
-//	public ResponseEntity<EnquiryInfo> getEnquiryInfo(@PathVariable int enid) {
-//		// argument response (line 38) should be relatively match while returning (line
-//		// 43)x
-//
-//		EnquiryInfo getenquiry = enquiryservice.getenquiry(enid);
-//
-//		return new ResponseEntity<EnquiryInfo>(getenquiry, HttpStatus.OK);
-//
-//	}
     
-	@GetMapping("/get-enquiry/{enid}")
+	@GetMapping("/{enid}")
 	public ResponseEntity<?>getEnquiryInfo(@PathVariable int enid){
 		
 		return enquiryservice.getenquiry(enid);
 		
 	}
-	@GetMapping("/get-Allenquiry")
+	@GetMapping
 	public ResponseEntity<List<EnquiryInfo>> getAllEnquiryInfo() {
 
 		List<EnquiryInfo> allInfo = enquiryservice.getAllInfo();
