@@ -17,10 +17,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table
 
-
-@NoArgsConstructor
-@AllArgsConstructor
-
 public class AllDocuments {
 	
 	@Id

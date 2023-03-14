@@ -19,9 +19,6 @@ public class AccountDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
     private int id;
-
-	private int id;
-
 	private String accBankName;
 	private Double accNO;
 	private String accHolderName;

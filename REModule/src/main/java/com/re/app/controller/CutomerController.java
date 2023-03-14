@@ -132,7 +132,6 @@ public class CutomerController {
 			@RequestBody(required = false) BusinessProfession businessProfession) {
 
 		customerService.setProfessionDetails(custId, professionType, salariedProfession, businessProfession);
-<<<<<<< HEAD
 			return null;
 	}
 			
@@ -151,12 +150,8 @@ public class CutomerController {
 				CoApplicantDetails addCoApplicantDetails = customerService.updateCoApplicantDetails(coApplicantDetails);
 				
 				return new ResponseEntity<>(addCoApplicantDetails, HttpStatus.OK);
-			}
-
 			
-
-=======
-		return null;
+					
 
 	}
 
@@ -165,7 +160,7 @@ public class CutomerController {
 	public ResponseEntity<ExistingLoanBank> setExistingLoanBank(@RequestBody ExistingLoanBank existingLoanBank) {
 		ExistingLoanBank existingLoanBank1 = existingLoanBankService.setExistingLoanBank(existingLoanBank);
 		return new ResponseEntity<>(existingLoanBank1, HttpStatus.CREATED);
->>>>>>> 81d5a1d40aaa75423d51ffdb27d6c12233fd2c3d
+
 	}
 
 	@PutMapping("/update-ExistingLoanBank/{exlBranchId}")

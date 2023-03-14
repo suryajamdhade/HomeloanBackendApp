@@ -24,8 +24,5 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer>{
 	Customer getByCustEmail(String custEmail);
 	
 
-<<<<<<< HEAD
-		
-=======
->>>>>>> 81d5a1d40aaa75423d51ffdb27d6c12233fd2c3d
+
 }

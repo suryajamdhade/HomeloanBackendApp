@@ -22,7 +22,6 @@ import lombok.Setter;
 
 @Data
 
-@Data
 
 @NoArgsConstructor
 @AllArgsConstructor

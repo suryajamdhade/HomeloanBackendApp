@@ -118,7 +118,7 @@ public class CustomerServiceImpl implements CustomerService{
 		    }
 	}
 
-<<<<<<< HEAD
+
 	@Override
 	public CoApplicantDetails setCoApplicantDetails(int custId, CoApplicantDetails coApplicantDetails) {
 		
@@ -149,8 +149,5 @@ public class CustomerServiceImpl implements CustomerService{
 		return null;
 	}
 
-	
-=======
 
->>>>>>> 81d5a1d40aaa75423d51ffdb27d6c12233fd2c3d
 }
