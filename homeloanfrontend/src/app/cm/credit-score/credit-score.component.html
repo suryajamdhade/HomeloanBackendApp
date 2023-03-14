@@ -1,0 +1,17 @@
+<h2>Credit Score</h2>
+
+<div *ngIf="creditScore !== null">
+  <p>Your credit score is {{ creditScore }}</p>
+</div>
+
+<div *ngIf="creditScore === null">
+  <p>Loading credit score...</p>
+</div>
+
+<form (ngSubmit)="getCreditScore(custId)">
+  <label for="custId">Customer ID:</label>
+  <input type="number" id="custId" name="custId" [(ngModel)]="custId" required>
+
+  <button type="submit">Get Credit Score</button>
+</form>
+

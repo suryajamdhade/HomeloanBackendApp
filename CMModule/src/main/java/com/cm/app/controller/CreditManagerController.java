@@ -1,7 +1,9 @@
 package com.cm.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,29 +16,33 @@ import com.cm.app.service.CreditManagerService;
 
 @RequestMapping("/cm-api")
 @RestController
+@CrossOrigin
 public class CreditManagerController {
 
 	@Autowired
 	private CreditManagerService creditManagerService;
+	private String updateCreditScore;
 
 	//get credit score from third-party API
-	@GetMapping("/credit-score/{customerId}")
-	public ResponseEntity<Integer> getCreditScore(@PathVariable int customerId) {
-		int creditScore = creditManagerService.getCreditScore(customerId);
+	@GetMapping("/credit-score/{custId}")
+	public ResponseEntity<Integer> getCreditScore(@PathVariable int custId) {
+		int creditScore = creditManagerService.getCreditScore(custId);
 		return ResponseEntity.ok(creditScore);
 	}
 
 	//update credit score in the database
-	@PostMapping("/credit-score/{customerId}")
-	public ResponseEntity<Integer> updateCreditScore(@PathVariable int customerId, @RequestParam int creditScore) {
-		creditManagerService.updateCreditScore(customerId, creditScore);
-		return ResponseEntity.ok(creditScore);
+	@PostMapping("/credit-score/{custId}")
+	public ResponseEntity<String> updateCreditScore(@PathVariable int custId, @RequestParam int creditScore) {
+		updateCreditScore = creditManagerService.updateCreditScore(custId, creditScore);
+		
+		return ResponseEntity.ok(updateCreditScore);
+		
 	}
 
 	//approve or reject loan
 	@PutMapping("/loan-applications/{applicationId}")
-	public ResponseEntity<Void> approveOrRejectLoan(@PathVariable int customerId, @RequestParam boolean isApproved) {
-		creditManagerService.approveOrRejectLoan(customerId, isApproved);
+	public ResponseEntity<Void> approveOrRejectLoan(@PathVariable int custId, @RequestParam boolean isApproved) {
+		creditManagerService.approveOrRejectLoan(custId, isApproved);
 		return ResponseEntity.ok().build();
 	}
 
