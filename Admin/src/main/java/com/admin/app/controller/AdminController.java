@@ -16,13 +16,13 @@ import com.admin.app.model.Employee;
 import com.admin.app.service.AdminService;
 
 @RestController
-@RequestMapping("/admin-api")
+@RequestMapping("/admin")
 public class AdminController {
 
 	@Autowired
 	private AdminService adminservice;
 
-	@PostMapping("/add-employee")
+	@PostMapping("/employee")
 	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
 
 		Employee addedemp = adminservice.addemployee(employee);
@@ -30,13 +30,13 @@ public class AdminController {
 		return new ResponseEntity<Employee>(addedemp, HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/get-empByempId/{empId}")
+	@GetMapping("/employee/{empId}")
 	public ResponseEntity<?>getEmployeeByUsername(@PathVariable int empId){
 		 
 		return adminservice.getEmployeeById(empId);
 	}
 	
-	@PutMapping("/update-employee")
+	@PutMapping
 	public ResponseEntity<Employee>updateEmployee(@RequestBody Employee employee){
 		
 		Employee updatedemployee = adminservice.addemployee(employee);
@@ -44,7 +44,7 @@ public class AdminController {
 		
 	}
 	
-	@DeleteMapping("/delete-employee/{id}")
+	@DeleteMapping("employee/{id}")
 	public ResponseEntity<String>deleteEmployeeById(@PathVariable int id){
 		
 		adminservice.deleteEmployee(id);

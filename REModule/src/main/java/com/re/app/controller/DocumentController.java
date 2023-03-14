@@ -25,7 +25,7 @@ public class DocumentController {
 	private DocumentService documentservice;
 
 	
-	@PostMapping("/upload-documents")
+	@PostMapping
 	public ResponseEntity<String> SetDocuments(@RequestParam String type, @RequestPart MultipartFile addressProof,
 			@RequestPart MultipartFile itr, @RequestPart MultipartFile adharCard, @RequestPart MultipartFile panCard,
 			@RequestPart MultipartFile photo, @RequestPart MultipartFile signature,@RequestPart(required = false)  MultipartFile  salarySlips,

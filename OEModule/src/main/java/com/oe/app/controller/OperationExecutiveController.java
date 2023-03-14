@@ -19,10 +19,10 @@ import com.oe.app.model.LoanApplication;
 @RequestMapping("/oe-api")
 public class OperationExecutiveController {
 
-	@Autowired
+//	@Autowired
 	private LoanApplicationControllerClient loanApplicationClient;
-	
-	@Autowired
+//	
+//	@Autowired
 	private CustomerControllerfeign customerControllerfeign;
 	
 	@GetMapping("/loan-application/{loanId}")
