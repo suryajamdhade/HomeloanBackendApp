@@ -15,15 +15,18 @@ import lombok.Setter;
 
 
 
+
 @Setter
 @Getter
 @Entity
 
 @Data
 
+
 @NoArgsConstructor
 @AllArgsConstructor
 public class BusinessTypeDocs extends AllDocuments{
+
 
 
 //	@Id
@@ -32,6 +35,5 @@ public class BusinessTypeDocs extends AllDocuments{
 	@Lob
 
 	
-
 	private byte[] GST;
 }

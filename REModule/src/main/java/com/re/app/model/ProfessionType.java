@@ -27,4 +27,29 @@ public class ProfessionType {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private BusinessProfession BusinessProfession;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public SalariedProfession getSalariedProfession() {
+		return SalariedProfession;
+	}
+
+	public void setSalariedProfession(SalariedProfession salariedProfession) {
+		SalariedProfession = salariedProfession;
+	}
+
+	public BusinessProfession getBusinessProfession() {
+		return BusinessProfession;
+	}
+
+	public void setBusinessProfession(BusinessProfession businessProfession) {
+		BusinessProfession = businessProfession;
+	}
+	
 }

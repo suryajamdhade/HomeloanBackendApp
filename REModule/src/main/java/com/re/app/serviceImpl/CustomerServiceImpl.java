@@ -10,6 +10,7 @@ import com.re.app.repository.AccountRepository;
 import com.re.app.repository.CustomerRepository;
 import com.re.app.service.CustomerService;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -20,10 +21,12 @@ import org.springframework.stereotype.Service;
 
 import com.re.app.model.AccountDetails;
 import com.re.app.model.BusinessProfession;
+import com.re.app.model.CoApplicantDetails;
 import com.re.app.model.Customer;
 import com.re.app.model.ProfessionType;
 import com.re.app.model.SalariedProfession;
 import com.re.app.repository.AccountDetailsRepository;
+import com.re.app.repository.CoApplicantDetailsRepository;
 import com.re.app.repository.CustomerRepository;
 import com.re.app.service.CustomerService;
 
@@ -35,6 +38,9 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	@Autowired
 	private AccountDetailsRepository accountDetailsRepository;
+	
+	@Autowired
+	private CoApplicantDetailsRepository coApplicantDetails;
 	
 	@Override
 	public List<Customer> getAllCustomers() {
@@ -112,6 +118,36 @@ public class CustomerServiceImpl implements CustomerService{
 		    }
 	}
 
-	
+
+	@Override
+	public CoApplicantDetails setCoApplicantDetails(int custId, CoApplicantDetails coApplicantDetails) {
+		
+		Optional<Customer> customer = customerRepository.findById(custId);
+		
+		if(customer.isPresent()) {
+			CoApplicantDetails save = this.coApplicantDetails.save(coApplicantDetails);
+			return save;
+		}else {
+			System.out.println("Customer with id not present");
+			return null;
+		}
+		
+		
+		
+		
+	}
+
+	@Override
+	public CoApplicantDetails getCoApplicantDetails(CoApplicantDetails coApplicantDetails) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CoApplicantDetails updateCoApplicantDetails(CoApplicantDetails coApplicantDetails) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

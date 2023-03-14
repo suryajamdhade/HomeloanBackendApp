@@ -1,6 +1,10 @@
 package com.re.app.controller;
 
 import java.io.IOException;		
+
+import java.io.IOException;
+import java.util.Arrays;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +29,21 @@ import com.re.app.model.Customer;
 import com.re.app.model.ExistingLoan;
 import com.re.app.model.ExistingLoanBank;
 import com.re.app.model.SalariedProfession;
+
+import com.re.app.dto.DocumentDTO;
+import com.re.app.model.AccountDetails;
+import com.re.app.model.AllDocuments;
+import com.re.app.model.BusinessProfession;
+import com.re.app.model.CoApplicantDetails;
+import com.re.app.model.Customer;
+import com.re.app.model.EnquiryInfo;
+import com.re.app.model.ExistingLoan;
+import com.re.app.model.ExistingLoanBank;
+import com.re.app.model.ProfessionType;
+import com.re.app.model.SalariedProfession;
+import com.re.app.model.SalariedTypeDocs;
+import com.re.app.repository.CustomerRepository;
+
 //import com.re.app.service.CustomerService;
 import com.re.app.service.CustomerService;
 import com.re.app.service.ExistingLoanBankService;
@@ -116,7 +135,26 @@ public class CutomerController {
 			@RequestBody(required = false) BusinessProfession businessProfession) {
 
 		customerService.setProfessionDetails(custId, professionType, salariedProfession, businessProfession);
-		return null;
+			return null;
+	}
+			
+	
+	//adding co applicant details
+	
+	@PostMapping("/{custId}/addCoApplicantDetails")
+			public ResponseEntity<CoApplicantDetails> addCoApplicantDetails(@PathVariable int custId,  @RequestBody CoApplicantDetails coApplicantDetails) {
+				CoApplicantDetails newCoApplicantDetails = customerService.setCoApplicantDetails(custId, coApplicantDetails);
+				return new ResponseEntity<>(newCoApplicantDetails, HttpStatus.CREATED);
+			}
+
+			@PutMapping
+			public ResponseEntity<CoApplicantDetails> updateCoApplicantDetails(@RequestBody CoApplicantDetails coApplicantDetails) {
+				
+				CoApplicantDetails addCoApplicantDetails = customerService.updateCoApplicantDetails(coApplicantDetails);
+				
+				return new ResponseEntity<>(addCoApplicantDetails, HttpStatus.OK);
+			
+					
 
 	}
 
@@ -125,6 +163,7 @@ public class CutomerController {
 	public ResponseEntity<ExistingLoanBank> setExistingLoanBank(@RequestBody ExistingLoanBank existingLoanBank) {
 		ExistingLoanBank existingLoanBank1 = existingLoanBankService.setExistingLoanBank(existingLoanBank);
 		return new ResponseEntity<>(existingLoanBank1, HttpStatus.CREATED);
+
 	}
 
 	@PutMapping("/update-ExistingLoanBank/{exlBranchId}")
@@ -183,8 +222,5 @@ public class CutomerController {
 	}
 
 	// Added for ExistingLoan-ends
-
-
-
 
 }
