@@ -22,7 +22,7 @@ public class EnquiryController {
 	@Autowired
 	private EnquiryService enquiryservice;
 
-	@PostMapping("/insert-enquiry")
+	@PostMapping
 	public ResponseEntity<EnquiryInfo> initiateEnquiryInfo(@RequestBody EnquiryInfo enquiryinfo) {
 
 		enquiryservice.saveEnquiryInfo(enquiryinfo);
@@ -33,13 +33,13 @@ public class EnquiryController {
 	
 	
     
-	@GetMapping("/get-enquiry/{enid}")
+	@GetMapping("/{enid}")
 	public ResponseEntity<?>getEnquiryInfo(@PathVariable int enid){
 		
 		return enquiryservice.getenquiry(enid);
 		
 	}
-	@GetMapping("/get-Allenquiry")
+	@GetMapping
 	public ResponseEntity<List<EnquiryInfo>> getAllEnquiryInfo() {
 
 		List<EnquiryInfo> allInfo = enquiryservice.getAllInfo();

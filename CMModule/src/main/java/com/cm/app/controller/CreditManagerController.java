@@ -20,7 +20,7 @@ public class CreditManagerController {
 	private CreditManagerService creditManagerService;
 
 	//get credit score from third-party API
-	@GetMapping("/credit-score/{customerId}")
+	@GetMapping("/{customerId}")
 	public ResponseEntity<Integer> getCreditScore(@PathVariable int customerId) {
 		int creditScore = creditManagerService.getCreditScore(customerId);
 		return ResponseEntity.ok(creditScore);

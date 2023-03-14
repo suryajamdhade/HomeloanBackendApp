@@ -20,7 +20,7 @@ import com.re.app.model.PropertyInfo;
 import com.re.app.service.PropertyService;
 
 @RestController
-@RequestMapping("/api-property")
+@RequestMapping("/property-api")
 public class PropertyController {
 
 	@Autowired
@@ -29,7 +29,7 @@ public class PropertyController {
 	@Autowired
 	private  ModelMapper modelMapper;
 	
-	@PostMapping(value="/save-property",consumes = { "multipart/form-data" })
+	@PostMapping(consumes = { "multipart/form-data" })
     public ResponseEntity<PropertyDTO> SaveProperty(@RequestPart PropertyDTO propertyDTO,
                                                        @RequestPart( required = false) MultipartFile nocFile,
                                                        @RequestPart( required = false) MultipartFile titleDeedFile,
