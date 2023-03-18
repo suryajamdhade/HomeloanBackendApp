@@ -3,6 +3,8 @@ package com.cm.app.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +28,8 @@ public class CreditManagerController {
 	@Autowired
 	private CreditManagerService creditManagerService;
 	private String updateCreditScore;
-	
 
-	//get credit score from third-party API
+	// get credit score from third-party API
 	@GetMapping("/credit-score/{custId}")
 	public ResponseEntity<Integer> getCreditScore(@PathVariable int custId) {
 		int creditScore = creditManagerService.getCreditScore(custId);
@@ -36,29 +37,25 @@ public class CreditManagerController {
 
 	}
 
-	//update credit score in the database
+	// update credit score in the database
 	@PostMapping("/credit-score/{custId}")
-	public ResponseEntity<Object> updateCreditScore(@PathVariable int custId, @RequestBody Map<String, Integer> requestBody) {
-		int creditScore = requestBody.get("creditScore");
-		updateCreditScore = creditManagerService.updateCreditScore(custId, creditScore);
-		 if (updateCreditScore == null) {
-		        return ResponseEntity.ok().build();
-		    } else {
-		        Map<String, String> response = new HashMap<>();
-		        response.put("message", updateCreditScore);
-		        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
-		    }
-		
+	public String updateCreditScore(@PathVariable int custId, @RequestParam(required = false) Integer creditScore) {
+
+		if (creditScore == null) {
+
+			return "Please enter numerical value";
+		}
+		String updateCreditScore2 = creditManagerService.updateCreditScore(custId, creditScore);
+
+		return updateCreditScore2;
+
 	}
 
-	//approve or reject loan
+	// approve or reject loan
 	@PutMapping("/loan-applications/{applicationId}")
 	public ResponseEntity<Void> approveOrRejectLoan(@PathVariable int custId, @RequestParam boolean isApproved) {
 		creditManagerService.approveOrRejectLoan(custId, isApproved);
 		return ResponseEntity.ok().build();
 	}
-
-	
-	
 
 }
