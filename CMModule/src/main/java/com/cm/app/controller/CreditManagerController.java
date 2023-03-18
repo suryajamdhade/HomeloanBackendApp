@@ -1,5 +1,8 @@
 package com.cm.app.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,26 +26,28 @@ public class CreditManagerController {
 	@Autowired
 	private CreditManagerService creditManagerService;
 	private String updateCreditScore;
+	
 
 	//get credit score from third-party API
-<<<<<<< HEAD
 	@GetMapping("/credit-score/{custId}")
 	public ResponseEntity<Integer> getCreditScore(@PathVariable int custId) {
 		int creditScore = creditManagerService.getCreditScore(custId);
-=======
-	@GetMapping("/{customerId}")
-	public ResponseEntity<Integer> getCreditScore(@PathVariable int customerId) {
-		int creditScore = creditManagerService.getCreditScore(customerId);
->>>>>>> eeafaeb0f0d9374090ca219c64108942d33ae981
 		return ResponseEntity.ok(creditScore);
+
 	}
 
 	//update credit score in the database
 	@PostMapping("/credit-score/{custId}")
-	public ResponseEntity<String> updateCreditScore(@PathVariable int custId, @RequestParam int creditScore) {
+	public ResponseEntity<Object> updateCreditScore(@PathVariable int custId, @RequestBody Map<String, Integer> requestBody) {
+		int creditScore = requestBody.get("creditScore");
 		updateCreditScore = creditManagerService.updateCreditScore(custId, creditScore);
-		
-		return ResponseEntity.ok(updateCreditScore);
+		 if (updateCreditScore == null) {
+		        return ResponseEntity.ok().build();
+		    } else {
+		        Map<String, String> response = new HashMap<>();
+		        response.put("message", updateCreditScore);
+		        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+		    }
 		
 	}
 

@@ -17,6 +17,8 @@ export class CreditScoreUpdateComponent {
   }
 
   updateCreditScore(){
+
+    console.log(this.customerId, this.creditScore);
     this.creditManagerService.updateCreditScore(this.customerId, this.creditScore).subscribe((creditScore: number) => {
       console.log("Credit score updated successfully.");
     });
