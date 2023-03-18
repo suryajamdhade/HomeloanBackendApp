@@ -16,10 +16,9 @@ export class CreditManagerService {
     return this.http.get<number>(url);
   }
 
-  updateCreditScore(custId: number, creditScore: number): Observable<number> {
-    const url = `${this.baseUrl}/credit-score/${custId}`;
-    console.log(custId, creditScore);
-    return this.http.post<number>(url, { "creditScore": creditScore });
+  updateCreditScore(custId: number, creditScore: number): Observable<string> {
+    const url = `${this.baseUrl}/credit-score/${custId}?creditScore=${creditScore}`;
+    return this.http.post(url, null, { responseType: 'text' });
   }
 
   approveOrRejectLoan(applicationId: number, isApproved: boolean): Observable<void> {
