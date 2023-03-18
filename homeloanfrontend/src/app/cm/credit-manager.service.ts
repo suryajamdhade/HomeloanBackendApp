@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CreditManagerService {
 
-  private baseUrl = 'http://localhost:4000/cm-api';
+  private baseUrl = 'http://localhost:9094/cm-api';
 
   constructor(private http : HttpClient) { }
 
@@ -18,7 +18,8 @@ export class CreditManagerService {
 
   updateCreditScore(custId: number, creditScore: number): Observable<number> {
     const url = `${this.baseUrl}/credit-score/${custId}`;
-    return this.http.post<number>(url, creditScore);
+    console.log(custId, creditScore);
+    return this.http.post<number>(url, { "creditScore": creditScore });
   }
 
   approveOrRejectLoan(applicationId: number, isApproved: boolean): Observable<void> {
