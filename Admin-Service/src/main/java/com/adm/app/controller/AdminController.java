@@ -32,9 +32,11 @@ public class AdminController {
 	}
 	
 	@GetMapping("/employee/{empId}")
-	public ResponseEntity<?>getEmployeeByUsername(@PathVariable int empId){
+	public ResponseEntity<Employee>getEmployeeById(@PathVariable int empId){
 		 
-		return adminservice.getEmployeeById(empId);
+		Employee employeeById = adminservice.getEmployeeById(empId);
+		return new ResponseEntity<Employee>(employeeById, HttpStatus.OK);
+		
 	}
 	
 	@PutMapping

@@ -9,7 +9,7 @@ public interface AdminService {
 
 	Employee addemployee(Employee employee);
 
-	ResponseEntity<?> getEmployeeById(int empId);
+	Employee getEmployeeById(int empId);
 
     void deleteEmployee(int id);
 

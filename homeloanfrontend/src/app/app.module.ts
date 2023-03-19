@@ -9,10 +9,14 @@ import { AppComponent } from './app.component';
 import { CmRoutingModule } from './cm/cm-routing.module';
 import { CMModule } from './cm/cm.module';
 import { REModule } from './re/re.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
