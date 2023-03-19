@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CreditManagerService {
-
+ 
   private baseUrl = 'http://localhost:9094/cm-api';
 
   constructor(private http : HttpClient) { }
@@ -21,11 +21,15 @@ export class CreditManagerService {
     return this.http.post(url, null, { responseType: 'text' });
   }
 
-  approveOrRejectLoan(applicationId: number, isApproved: boolean): Observable<void> {
-    const url = `${this.baseUrl}/loan-applications/${applicationId}`;
-    return this.http.put<void>(url, isApproved);
+  rejectLoanApplication(id: number) {
+    const url = `${this.baseUrl}/rejectLoanApplication?id=${id}`;
+    return this.http.patch(url, null, { responseType: 'text' });
   }
-  
- 
+  approveLoanApplication(id: number): Observable<string>{
+    const url = `${this.baseUrl}/approveLoanApplication?id=${id}`;
+    return this.http.patch(url, null, { responseType: 'text' });
+   
+  }
+
   
 }

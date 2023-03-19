@@ -1,1 +1,64 @@
-<p>loan-application-details works!</p>
+<div class="loan-details-container">
+    <h2>Loan Application Details</h2>
+    <div *ngIf="!loanApplication">
+      <p>Loading...</p>
+    </div>
+    <div *ngIf="loanApplication">
+      <table>
+        <tr>
+          <td>Loan Application ID:</td>
+          <td>{{ loanApplication.id }}</td>
+        </tr>
+        <tr>
+          <td>Customer ID:</td>
+          <td>{{ loanApplication.customerId }}</td>
+        </tr>
+        <tr>
+          <td>Property ID:</td>
+          <td>{{ loanApplication.propertyId }}</td>
+        </tr>
+        <tr>
+          <td>Loan Amount:</td>
+          <td>{{ loanApplication.loanAmount | currency }}</td>
+        </tr>
+        <tr>
+          <td>Interest Rate:</td>
+          <td>{{ loanApplication.interestRate }}%</td>
+        </tr>
+        <tr>
+          <td>Term:</td>
+          <td>{{ loanApplication.term }} years</td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td>{{ loanApplication.status }}</td>
+        </tr>
+        <tr>
+          <td>Date Submitted:</td>
+          <td>{{ loanApplication.dateSubmitted }}</td>
+        </tr>
+        <tr>
+          <td>Date Approved:</td>
+          <td>{{ loanApplication.dateApproved }}</td>
+        </tr>
+        <tr>
+          <td>Loan Officer ID:</td>
+          <td>{{ loanApplication.loanOfficerId }}</td>
+        </tr>
+        <tr>
+          <td>Credit Score:</td>
+          <td>{{ loanApplication.creditScore }}</td>
+        </tr>
+        <tr>
+          <td>Monthly Payment:</td>
+          <td>{{ loanApplication.monthlyPayment | currency }}</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+        <button class="approve-button" (click)="approveLoanApplication()">Approve</button>
+        <button class="reject-button" (click)="rejectLoanApplication()" >Reject</button>
+      </div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
+  

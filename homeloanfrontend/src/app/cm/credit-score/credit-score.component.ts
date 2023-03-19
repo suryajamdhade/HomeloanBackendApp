@@ -11,6 +11,7 @@ export class CreditScoreComponent {
   creditScore: number = 0;
 
   custId: number = 0;
+  
   constructor(private creditManagerService: CreditManagerService) { }
 
   getCreditScore(custId: number){
