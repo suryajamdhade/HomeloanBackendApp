@@ -5,8 +5,10 @@ import { CreditScoreUpdateComponent } from './credit-score-update/credit-score-u
 import { LoanApplicationComponent } from './loan-application/loan-application.component';
 import { LoanApplicationListComponent } from './loan-application-list/loan-application-list.component';
 import { LoanApplicationDetailsComponent } from './loan-application-details/loan-application-details.component';
-import { LoanApplicationApprovalComponent } from './loan-application-approval/loan-application-approval.component';
+
 import { FormsModule } from '@angular/forms';
+import { CmRoutingModule } from './cm-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -16,16 +18,18 @@ import { FormsModule } from '@angular/forms';
     CreditScoreUpdateComponent,
     LoanApplicationComponent,
     LoanApplicationListComponent,
-    LoanApplicationDetailsComponent,
-    LoanApplicationApprovalComponent
+    LoanApplicationDetailsComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    CmRoutingModule
   ],
   exports:[
     CreditScoreComponent,
-    CreditScoreUpdateComponent
+    CreditScoreUpdateComponent,
+    LoanApplicationDetailsComponent,
+    LoanApplicationListComponent
   ]
 })
 export class CMModule { }

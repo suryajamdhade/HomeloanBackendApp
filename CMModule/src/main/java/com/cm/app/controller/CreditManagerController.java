@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -51,11 +52,25 @@ public class CreditManagerController {
 
 	}
 
-	// approve or reject loan
-	@PutMapping("/loan-applications/{applicationId}")
-	public ResponseEntity<Void> approveOrRejectLoan(@PathVariable int custId, @RequestParam boolean isApproved) {
-		creditManagerService.approveOrRejectLoan(custId, isApproved);
-		return ResponseEntity.ok().build();
+	// approve a loan
+	@PatchMapping("/approveLoanApplication")
+	public String approveLoanApplication(@RequestParam("id") int id) {
+		
+		String approveLoanApplication = creditManagerService.approveLoanApplication(id);
+		return approveLoanApplication;
+		
+	
 	}
+
+	
+	// reject a loan
+		@PatchMapping("/rejectLoanApplication")
+		public String rejectLoanApplication(@RequestParam("id") int id) {
+			
+			String rejectLoanApplication = creditManagerService.rejectLoanApplication(id);
+			return rejectLoanApplication;
+			
+		
+		}
 
 }

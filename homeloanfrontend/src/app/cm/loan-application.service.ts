@@ -8,7 +8,7 @@ import { LoanApplication } from './model/LoanApplication';
 })
 export class LoanApplicationService {
 
-  private baseUrl = 'http://localhost:4000/loan-applications';
+  private baseUrl = 'http://localhost:9094/loan-applications';
 
   constructor(private http: HttpClient) { }
 
