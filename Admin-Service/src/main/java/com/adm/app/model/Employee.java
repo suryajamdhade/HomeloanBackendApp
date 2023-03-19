@@ -21,14 +21,14 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY,generator = "Employee_seq")
 	@SequenceGenerator(initialValue = 101,allocationSize = 1, name = "Employee_seq")
-	private int    empId;
-	private String empName;
-	private String empUsername;
-	private String empPassword;
-	private long   empMobileNo;	
-	private int    empSalary;
-	private String empDesignation;
-	private String empVintage;
+	private int    id;
+	private String name;
+	private String username;
+	private String password;
+	private long   mobileNo;	
+	private int    salary;
+	private String designation;
+	private String vintage;
 	
 	
 }

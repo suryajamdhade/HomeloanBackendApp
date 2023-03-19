@@ -18,10 +18,10 @@ public class Bankaddress {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int bAddId;
-	private String bLandmark;
-	private String bAreaname;
-	private String bCity;
-	private int    bPincode;
-	private String bState;
+	private int id;
+	private String landmark;
+	private String areaname;
+	private String city;
+	private int    pincode;
+	private String state;
 }
