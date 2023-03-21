@@ -26,21 +26,23 @@ public class AdminController {
 	@PostMapping("/employee")
 	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
 
-		Employee addedemp = adminservice.addemployee(employee);
+		Employee addedemp = adminservice.addEmployee(employee);
 
 		return new ResponseEntity<Employee>(addedemp, HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/employee/{empId}")
-	public ResponseEntity<?>getEmployeeByUsername(@PathVariable int empId){
+	public ResponseEntity<Employee>getEmployeeById(@PathVariable int empId){
 		 
-		return adminservice.getEmployeeById(empId);
+		Employee employeeById = adminservice.getEmployeeById(empId);
+		return new ResponseEntity<Employee>(employeeById, HttpStatus.OK);
+		
 	}
 	
 	@PutMapping
 	public ResponseEntity<Employee>updateEmployee(@RequestBody Employee employee){
 		
-		Employee updatedemployee = adminservice.addemployee(employee);
+		Employee updatedemployee = adminservice.addEmployee(employee);
 		return new ResponseEntity<Employee>(updatedemployee	,HttpStatus.CREATED);
 		
 	}
@@ -54,4 +56,10 @@ public class AdminController {
 		
 	}
 
+
+	@GetMapping("/home")
+	public String home() {
+		return "Home";
+	}
+	
 }

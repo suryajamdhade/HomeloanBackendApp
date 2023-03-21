@@ -17,10 +17,10 @@ public class EmployeeAddress {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int eAddId;
-	private String eState;
-	private String eCity;
-	private String eLandmark;
+	private int id;
+	private String state;
+	private String city;
+	private String landmark;
 	private int pincode;
 	
 }

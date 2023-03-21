@@ -7,9 +7,9 @@ import com.adm.app.model.Employee;
 
 public interface AdminService {
 
-	Employee addemployee(Employee employee);
+	Employee addEmployee(Employee employee);
 
-	ResponseEntity<?> getEmployeeById(int empId);
+	Employee getEmployeeById(int empId);
 
     void deleteEmployee(int id);
 
