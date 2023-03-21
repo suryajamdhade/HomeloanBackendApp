@@ -3,6 +3,7 @@ package com.adm.app.serviceImpl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.adm.app.model.Employee;
@@ -19,6 +20,9 @@ public class LoginServiceImpl implements LoginService{
 	@Autowired
 	private EmployeeRepository employeeRepository; 
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@Override
 	public String login(String username, String password) {
 		
@@ -26,7 +30,7 @@ public class LoginServiceImpl implements LoginService{
 		
 		if(findByUsername.isPresent()) {
 			
-			if(findByUsername.get().getPassword().equals(password)){
+			if(passwordEncoder.matches(password, findByUsername.get().getPassword())){
 				String designation = findByUsername.get().getDesignation();
 				
 				return "Login Successful"+designation+" dashboard is loading";
@@ -39,4 +43,5 @@ public class LoginServiceImpl implements LoginService{
 		
 	}
 
+	
 }

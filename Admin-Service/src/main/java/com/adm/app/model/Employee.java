@@ -29,6 +29,7 @@ public class Employee {
 	private int    salary;
 	private String designation;
 	private String vintage;
+	private String role;
 	
 	
 }

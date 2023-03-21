@@ -7,7 +7,7 @@ import com.adm.app.model.Employee;
 
 public interface AdminService {
 
-	Employee addemployee(Employee employee);
+	Employee addEmployee(Employee employee);
 
 	Employee getEmployeeById(int empId);
 
