@@ -19,7 +19,7 @@ import com.adm.app.service.AdminService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class AdminController {
 
 	@Autowired
