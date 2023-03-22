@@ -3,6 +3,7 @@ package com.adm.app.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.adm.app.service.LoginService;
 
 @RestController
 @RequestMapping("/login")
+@CrossOrigin
 public class LoginController {
 
 	@Autowired
