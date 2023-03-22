@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from '../login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -7,19 +8,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm: FormGroup;
+  username!: string;
+  password!: string;
 
-  constructor(private formBuilder: FormBuilder) { 
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
-  }
-
-  get username() { return this.loginForm.get('username'); }
-  get password() { return this.loginForm.get('password'); }
+  constructor(private loginService: LoginService) {}
 
   onSubmit() {
-    console.log(this.loginForm.value);
+    this.loginService.login(this.username, this.password)
+      .subscribe(response => {
+        console.log(response);
+      });
   }
 }
