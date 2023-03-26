@@ -1,6 +1,8 @@
 
 
 package com.adm.app.controller;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;	
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +21,7 @@ import com.adm.app.service.AdminService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class AdminController {
 
 	@Autowired
@@ -59,9 +61,11 @@ public class AdminController {
 	}
 
 
-	@GetMapping("/home")
-	public String home() {
-		return "Home";
+	@GetMapping("/employee")
+	public ResponseEntity<List<Employee>>getEmployees(){
+		 
+		List<Employee> employees = adminservice.getEmployees();
+		return new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
 	}
 	
 }

@@ -1,5 +1,6 @@
 package com.adm.app.serviceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,12 @@ public class AdminServiceImpl implements AdminService {
 
 		adminRepository.deleteById(id);
 
+	}
+
+	@Override
+	public List<Employee> getEmployees() {
+		
+		return employeeRepository.findAll();
 	}
 
 }

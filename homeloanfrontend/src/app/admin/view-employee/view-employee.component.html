@@ -3,18 +3,28 @@
     <table class="table">
       <thead>
         <tr>
-          <th>ID</th>
+          
           <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Action</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Mobile No</th>
+          <th>Salary</th>
+          <th>Designation</th>
+          <th>Vintage</th>
+          <th>Role</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let employee of employees">
-          <td>{{employee.id}}</td>
+          
           <td>{{employee.name}}</td>
-         
+          <td>{{employee.username}}</td>
+          <td>{{employee.password}}</td>
+          <td>{{employee.mobileNo}}</td>
+          <td>{{employee.salary}}</td>
+          <td>{{employee.designation}}</td>
+          <td>{{employee.vintage}}</td>
+          <td>{{employee.role}}</td>
           <td>
             <button type="button" class="btn btn-primary" (click)="updateEmployee(employee)">Update</button>
             <button type="button" class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button>
