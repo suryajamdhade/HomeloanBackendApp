@@ -1,0 +1,40 @@
+<div class="container">
+    <h2>Add Employee</h2>
+    <form (ngSubmit)="saveEmployee()" #employeeForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="employee.name" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Username:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="employee.username" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Password:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="employee.password" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Mobile No.:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="employee.mobileNo" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Salary:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="employee.salary" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Designation:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="employee.designation" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Vintage:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="employee.vintage" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Role:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="employee.role" required>
+      </div>
+     
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </form>
+  </div>
+  

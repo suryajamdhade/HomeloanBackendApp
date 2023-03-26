@@ -31,14 +31,21 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-				.antMatchers("/login").permitAll()
-				.antMatchers("/admin/**").hasAuthority("ADMIN")
-				.anyRequest()
-				.authenticated()
-				.and()
-				.httpBasic();
+	    http
+	        .authorizeRequests()
+	            .antMatchers("/login").permitAll()
+	            .antMatchers("/admin/**").hasAuthority("ADMIN")
+	            .anyRequest().authenticated()
+	            .and()
+	        .formLogin()
+	            .loginPage("/login")
+	            .defaultSuccessUrl("/login/home")
+	            .permitAll()
+	            .and()
+	        .logout()
+	            .permitAll();
 	}
+
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
