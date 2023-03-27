@@ -21,7 +21,7 @@ import com.adm.app.service.AdminService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "*")
+@CrossOrigin
 public class AdminController {
 
 	@Autowired
@@ -67,5 +67,11 @@ public class AdminController {
 		List<Employee> employees = adminservice.getEmployees();
 		return new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
 	}
+	
+	@GetMapping("/home")
+	public String home() {
+		return "Admin controller Home";
+	}
+	
 	
 }

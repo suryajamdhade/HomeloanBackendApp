@@ -37,6 +37,7 @@ public class AdminServiceImpl implements AdminService {
 		emp.setDesignation(employee.getDesignation());
 		emp.setSalary(employee.getSalary());
 		emp.setVintage(employee.getVintage());
+		emp.setRole(employee.getRole());
 		
 		return employeeRepository.save(emp);		
 

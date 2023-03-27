@@ -13,16 +13,13 @@ export class ViewEmployeeComponent implements OnInit {
 
   constructor(private adminService: AdminService) { }
 
-  ngOnInit(): void {
-    this.adminService.getEmployees().subscribe(
-      data => {
-        console.log(data);
-        this.employees = data;
-      },
-      error => {
-        console.log(error);
-        // Display error message
-      });
+  ngOnInit(){
+    this.getEmployees();
+  }
+
+  getEmployees(): void {
+    this.adminService.getEmployees()
+      .subscribe(employees => this.employees = employees);
   }
 
   updateEmployee(employee: Employee): void {
