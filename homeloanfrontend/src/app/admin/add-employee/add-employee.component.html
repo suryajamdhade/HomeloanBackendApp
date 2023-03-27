@@ -1,6 +1,14 @@
-<div class="container">
-  <h2>Add Employee</h2>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  
   <form (ngSubmit)="saveEmployee()" #employeeForm="ngForm">
+    <div class="note">
+      <h2>Add Employee</h2>
+  </div>
+    <div class="form-content">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -40,5 +48,6 @@
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
   </form>
-</div>
+
