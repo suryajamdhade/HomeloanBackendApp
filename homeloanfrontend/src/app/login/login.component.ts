@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 
@@ -11,6 +11,7 @@ import { LoginService } from '../login.service';
 export class LoginComponent {
   username!: string;
   password!: string;
+  @Output() loggedIn = new EventEmitter<boolean>();
 
   constructor(private loginService: LoginService, private router: Router) {}
 
@@ -19,7 +20,8 @@ export class LoginComponent {
       .subscribe(response => {
         console.log(response);
       });
-
+      
+      this.loggedIn.emit(true);
       this.router.navigate(['/admin']);
   }
 }

@@ -12,6 +12,7 @@ import { REModule } from './re/re.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { AdminModule } from './admin/admin.module';
+import { AdminRoutingModule } from './admin/admin-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AdminModule } from './admin/admin.module';
     CmRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    AdminModule
+    AdminModule,
+    AdminRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
