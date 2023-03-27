@@ -3,20 +3,25 @@ import { CommonModule } from '@angular/common';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ViewEmployeeComponent } from './view-employee/view-employee.component';
 import { FormsModule } from '@angular/forms';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminRoutingModule } from './admin-routing.module';
 
 
 
 @NgModule({
   declarations: [
     AddEmployeeComponent,
-    ViewEmployeeComponent
+    ViewEmployeeComponent,
+    AdminDashboardComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    AdminRoutingModule
   ],exports:[
     AddEmployeeComponent,
-    ViewEmployeeComponent
+    ViewEmployeeComponent,
+    AdminDashboardComponent
   ]
 })
 export class AdminModule { }
