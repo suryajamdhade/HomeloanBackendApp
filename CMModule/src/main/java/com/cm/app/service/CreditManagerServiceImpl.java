@@ -1,12 +1,16 @@
 package com.cm.app.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cm.app.customexceptions.CreditScoreServiceException;
 import com.cm.app.feignclients.CreditScoreClient;
 import com.cm.app.feignclients.CreditScoreResponse;
+import com.cm.app.model.APFDetails;
 import com.cm.app.model.LoanApplication;
+import com.cm.app.repository.APFDetailsRepository;
 import com.cm.app.repository.LoanApplicationRepository;
 
 @Service
@@ -17,6 +21,9 @@ public class CreditManagerServiceImpl implements CreditManagerService {
 
 	@Autowired
 	private LoanApplicationRepository loanApplicationRepository;
+	
+	@Autowired
+	private APFDetailsRepository APFRepo;
 	
 	@Override
 	public int getCreditScore(int customerId) throws CreditScoreServiceException {
@@ -61,5 +68,25 @@ public class CreditManagerServiceImpl implements CreditManagerService {
 		}
 		
 	}
+
+	@Override
+	public void addAPFDetails(APFDetails apfDetails) {
+		 
+		APFRepo.save(apfDetails);
+		
+	}
+
+	@Override
+	public APFDetails getAPFById(int APFId) {
+	  return APFRepo.findById(APFId).get();
+		
+	}
+
+	@Override
+	public List<APFDetails> getAllAPF() {
+		
+		return APFRepo.findAll();
+	}
+
 
 }

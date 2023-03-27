@@ -26,11 +26,11 @@ public class LoanApplication {
 
 	private int propertyId;
 
-	private double loanAmount;
+	private double loanAmount; // 25,00,000
 
-	private double interestRate;
+	private double interestRate;// 8.50
 
-	private int term;
+	private int term; // 30
 
 	private String status; //Pending, In Review, Approved, Rejected, Disbursed, Closed, Default.
 

@@ -147,7 +147,7 @@ public class CutomerController {
 				return new ResponseEntity<>(newCoApplicantDetails, HttpStatus.CREATED);
 			}
 
-			@PutMapping
+			@PutMapping("/update")
 			public ResponseEntity<CoApplicantDetails> updateCoApplicantDetails(@RequestBody CoApplicantDetails coApplicantDetails) {
 				
 				CoApplicantDetails addCoApplicantDetails = customerService.updateCoApplicantDetails(coApplicantDetails);

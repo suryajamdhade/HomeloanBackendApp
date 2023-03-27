@@ -1,9 +1,13 @@
-package com.adm.app.model;
+package com.re.app.model;
+
+import java.util.List;	
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.GeneratorType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,16 +15,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
-public class EmployeeAddress {
+@AllArgsConstructor
+public class APFDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int empAddId;
-	private String empState;
-	private String empCity;
-	private String empLandmark;
-	private int empPincode;
+	private int APFId;
+	private String APFBuilderName;
+	private char APFBuilderCategory;
+	
 	
 }

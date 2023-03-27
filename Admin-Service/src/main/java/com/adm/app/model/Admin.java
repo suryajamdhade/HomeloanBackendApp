@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 import java.util.List;
 
 import lombok.Data;
@@ -20,13 +19,12 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int admId;
-	private String Username;
-	private String Password;
+//	private String admUsername;
+//	private String admPassword; 
+	
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Employee> eDetails;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<EmployeeBankDetails> employeeBankDetails;
-	
+
 }

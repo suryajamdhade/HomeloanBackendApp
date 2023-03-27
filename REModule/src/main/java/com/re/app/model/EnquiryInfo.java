@@ -25,6 +25,11 @@ public class EnquiryInfo {
 	private int custAge;
 	private String custEmail;
 	private long custMobileNo;
+	private int custSalary;
+	private int homeLoanAmount;
+	private String custCompanyName;
+	private int custCity;
+	private int custPincode;
 	private long custAdharCardNo;
 	private String custPanCardNo;
 	

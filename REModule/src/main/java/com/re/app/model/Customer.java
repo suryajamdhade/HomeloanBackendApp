@@ -1,6 +1,6 @@
-	package com.re.app.model;
+package com.re.app.model;
 
-import java.util.List;
+import java.util.List;	
 
 import javax.persistence.CascadeType;	
 import javax.persistence.Entity;
@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.re.app.model.OffersSection;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -66,6 +68,8 @@ public class Customer {
 	@OneToOne(cascade = CascadeType.ALL)
 	private PropertyInfo cPropertyInfo;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	private ReferenceDetails reference;
 
 //	@OneToOne(cascade = CascadeType.ALL)
 //	private CustomerAddress cAddress;
@@ -142,6 +146,10 @@ public class Customer {
 	public void setCustAccountDetails(AccountDetails custAccountDetails) {
 		this.custAccountDetails = custAccountDetails;
 	}
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private OffersSection offersec;
+	
 //	@OneToOne(cascade = CascadeType.ALL)
 //	private ProfessionType custProfession;
 //
