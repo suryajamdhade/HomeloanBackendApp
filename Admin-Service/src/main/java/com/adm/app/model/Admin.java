@@ -18,6 +18,7 @@ public class Admin {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+<<<<<<< HEAD
 
 	private int admId;
 //	private String admUsername;
@@ -28,6 +29,11 @@ public class Admin {
 	private String username;
 	private String password;
 
+=======
+	private int id;
+	private String username;
+	private String password;
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Employee> eDetails;

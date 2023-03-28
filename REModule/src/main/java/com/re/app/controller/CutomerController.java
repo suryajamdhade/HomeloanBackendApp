@@ -139,6 +139,7 @@ public class CutomerController {
 		return null;
 	}
 
+<<<<<<< HEAD
 	// adding co applicant details
 
 	@PostMapping("/{custId}/addCoApplicantDetails")
@@ -155,6 +156,16 @@ public class CutomerController {
 		CoApplicantDetails addCoApplicantDetails = customerService.updateCoApplicantDetails(coApplicantDetails);
 
 		return new ResponseEntity<>(addCoApplicantDetails, HttpStatus.OK);
+=======
+			@PutMapping("/updateCoApplicantDetails")
+			public ResponseEntity<CoApplicantDetails> updateCoApplicantDetails(@RequestBody CoApplicantDetails coApplicantDetails) {
+				
+				CoApplicantDetails addCoApplicantDetails = customerService.updateCoApplicantDetails(coApplicantDetails);
+				
+				return new ResponseEntity<>(addCoApplicantDetails, HttpStatus.OK);
+			
+					
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 
 	}
 

@@ -17,6 +17,7 @@ public class EmployeeAddress {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+<<<<<<< HEAD
 
 	private int empAddId;
 	private String empState;
@@ -24,6 +25,8 @@ public class EmployeeAddress {
 	private String empLandmark;
 	private int empPincode;
 
+=======
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 	private int id;
 	private String state;
 	private String city;

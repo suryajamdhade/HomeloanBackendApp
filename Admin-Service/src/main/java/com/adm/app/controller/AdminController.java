@@ -1,6 +1,7 @@
 
 
 package com.adm.app.controller;
+<<<<<<< HEAD
 
 import java.io.Serializable;	
 
@@ -12,6 +13,10 @@ import org.apache.catalina.User;
 import java.util.List;
 
 
+=======
+import java.util.List;
+
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 import org.springframework.beans.factory.annotation.Autowired;	
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,6 +57,10 @@ public class AdminController {
 	@PostMapping("/employee")
 	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee ) {
 
+<<<<<<< HEAD
+=======
+		Employee addedemp = adminservice.addEmployee(employee);
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 
 		Employee addedemp = adminservice.addEmployee(employee);
     
@@ -61,10 +70,18 @@ public class AdminController {
 	}
 	
 	@GetMapping("/employee/{empId}")
+<<<<<<< HEAD
 	public ResponseEntity<?>getEmployeeById(@PathVariable int empId){
 		 
 		return adminservice.getEmployeeById(empId);
 	
+=======
+	public ResponseEntity<Employee>getEmployeeById(@PathVariable int empId){
+		 
+		Employee employeeById = adminservice.getEmployeeById(empId);
+		return new ResponseEntity<Employee>(employeeById, HttpStatus.OK);
+		
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 	}
 	
 	@PutMapping

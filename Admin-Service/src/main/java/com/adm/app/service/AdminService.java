@@ -1,9 +1,12 @@
 package com.adm.app.service;	
 
 
+<<<<<<< HEAD
 
 import org.springframework.http.ResponseEntity;
 
+=======
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;	
@@ -17,12 +20,14 @@ public interface AdminService {
 
 	Employee addEmployee(Employee employee);
 
-	ResponseEntity<?> getEmployeeById(int empId);
+	Employee getEmployeeById(int empId);
 
     void deleteEmployee(int id);
     
 
 //	Admin createAdmin(String username, String password);
+
+	List<Employee> getEmployees();
 
 	List<Employee> getEmployees();
 

@@ -44,6 +44,7 @@ public class CreditManagerController {
 
 	}
 
+<<<<<<< HEAD
 	
 	
 	@GetMapping("/cdetails") // implementation of third party application
@@ -63,6 +64,8 @@ public class CreditManagerController {
 		 }
 
 
+=======
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 	// update credit score in the database
 	@PostMapping("/credit-score/{custId}")
 	public String updateCreditScore(@PathVariable int custId, @RequestParam(required = false) Integer creditScore) {
@@ -85,6 +88,7 @@ public class CreditManagerController {
 		return approveLoanApplication;
 		
 	
+<<<<<<< HEAD
 	}
     
 	//Adding APFDetails
@@ -114,6 +118,11 @@ public class CreditManagerController {
 	   return new ResponseEntity<List<APFDetails>>(allAPF,HttpStatus.OK);
 	}
 
+=======
+	}
+
+	
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 	// reject a loan
 		@PatchMapping("/rejectLoanApplication")
 		public String rejectLoanApplication(@RequestParam("id") int id) {
