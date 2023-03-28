@@ -1,1 +1,539 @@
-<h2>Enquiry Form</h2>
+<form class="form" action="" id="form">
+  <div class="form--inner">
+    <form id="form1" name="form1"></form>
+    <input id="Referrer" name="Referrer" value="" type="hidden" />
+    <input
+      id="SearchEngine"
+      name="SearchEngine"
+      value=""
+      type="hidden"
+    />
+    <input id="uniqueToken" name="uniqueToken" value="" type="hidden" />
+    <input id="adtype" name="adtype" value="" type="hidden" />
+    <input id="Keyword" name="Keyword" value="" type="hidden" />
+    <input id="adgroup" name="adgroup" value="" type="hidden" />
+    <input id="Campaign" name="Campaign" value="" type="hidden" />
+    <input id="page" name="page" value="home-loan" type="hidden" />
+    <input id="CampaignKey" name="CampaignKey" type="hidden" value="" />
+    <input id="gclid" name="gclid" type="hidden" />
+    <input id="utm_info" name="utm_info" value="" type="hidden" />
+    <input id="utm_lms" name="utm_lms" type="hidden" value="" />
+    <input id="isVerified" name="isVerified" value="" type="hidden" />
+    <input id="GA_PARAM" name="GA_PARAM" type="hidden" />
+    <input id="ITM" name="ITM" type="hidden" />
+    <input id="NTB_ID" name="NTB_ID" type="hidden" />
+    <input id="FED_ID" name="FED_ID" type="hidden" />
+    <input id="sendOtp" name="sendOtp" type="hidden" value="yes" />
+    <input id="hdnuseragent" name="hdnuseragent" type="hidden" />
+    <input id="hdnLeadId" name="hdnLeadId" type="hidden" />
+    <input
+      id="CriffTriggered"
+      name="CriffTriggered"
+      type="hidden"
+      value="No"
+    />
+    <input id="CriffResponse" name="criffResponse" type="hidden" />
+    <input
+      id="companyType"
+      name="companyType"
+      type="hidden"
+      value="Other"
+    />
+    <input
+      id="companySelected"
+      name="companySelected"
+      type="hidden"
+      value="No"
+    />
+    <input id="reportId" name="reportId" type="hidden" />
+    <input id="cibilScore" name="cibilScore" type="hidden" />
+    <input
+      id="incomeSegmentScore"
+      name="incomeSegmentScore"
+      type="hidden"
+    />
+    <input id="getFbpValue" name="getFbpValue" type="hidden" />
+    <input id="getFbcValue" name="getFbcValue" type="hidden" />
+    <input
+      id="criffCalled"
+      name="criffCalled"
+      type="hidden"
+      value="No"
+    />
+
+    <div class="banner_formWrap">
+
+
+<div class="formBox">
+  <div class="formHeader">
+    <h3>Calculate Your Home Loan Eligibility</h3>
+  </div>
+  <div class="formBody HomeLoan">
+    <div class="form-group">
+      <div class="form-control-wrap icons salared">
+        <div class="select-text">Salaried</div>
+        <select
+          class="form-control selectCtrl Occupation"
+          id="ddlOccupationHL"
+          name="ddlOccupationHL"
+          required=""
+        >
+          <!-- <option value="">Occupation</option> -->
+          <option value="Salaried">Salaried</option>
+          <option value="Self Employed">Self-Employed</option>
+        </select>
+        <div class="error"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-control-wrap icons name">
+        <input
+          class="form-control name onlyAphabets criffCall"
+          id="txtNameHL"
+          name="txtNameHL"
+          type="text"
+          placeholder="Name"
+          required=""
+        />
+        <div class="error"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-control-wrap icons mobile">
+        <div style="display: flex">
+          <span class="mobilePreText" id="mobilePreText"
+            >+91</span
+          >
+          <input
+            class="form-control mobileNo criffCall"
+            id="txtMobileHL"
+            name="txtMobileHL"
+            type="tel"
+            value=""
+            maxlength="10"
+            placeholder="Mobile Number"
+            required=""
+          />
+        </div>
+        <div class="phone_error error"></div>
+      </div>
+    </div>
+    <div class="form-group" id="ParaOTPHL">
+      <div class="form-control-wrap icons otp">
+        <input
+          class="form-control onlyNumber"
+          id="txtOTPHL"
+          name="OTP"
+          type="tel"
+          maxlength="6"
+          value=""
+          placeholder="OTP"
+          required=""
+          onchange="Javascript:VerifySMS('HL');"
+          onkeypress="return isNumber(event)"
+          autocomplete="password"
+        />
+        <input id="hdnOTPHL" type="hidden" name="hdnOTPHL" />
+        <div class="error"></div>
+      </div>
+      <a
+        class="ResendOTP"
+        id="ParaResendHL"
+        href="javascript:;"
+        onclick="SendSMS('HL');"
+        style="display: none"
+        >Resend OTP</a
+      >
+      <span class="timer" id="timer"></span>
+    </div>
+    <div class="form-group">
+      <div class="form-control-wrap icons email">
+        <input
+          class="form-control criffCall"
+          id="txtEmailHL"
+          name="txtEmailHL"
+          type="email"
+          placeholder="Email ID"
+          required=""
+        />
+        <div class="error"></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-control-wrap icons Purpose-of-loan">
+        <div class="select-text">Purpose of loan</div>
+        <select
+          class="form-control selectCtrl"
+          id="ddlPurposeOfLoanHL"
+          name="ddlPurposeOfLoanHL"
+          onchange="ddlPurposeOfLoanHLChange(this)"
+          required=""
+        >
+          <option value="">Purpose of loan</option>
+          <option value="Purchase a residential property">
+            Purchase a residential property
+          </option>
+          <option value="Puchase a commercial property">
+            Puchase a commercial property
+          </option>
+        </select>
+        <div class="error"></div>
+      </div>
+    </div>
+
+    <div class="form-group rqloanamount" style="color: #496482">
+      <div class="form-control-wrap icons monthly-salary">
+        <div class="select-text">Required Loan Amount</div>
+      </div>
+      <div class="row">
+        <div class="radio-btn-wrap col-6">
+          <input
+            type="radio"
+            id="bt1"
+            name="loan"
+            class="rdbtn"
+            value="Less than 15 Lakhs"
+          />
+          <span class="checkmark"></span>
+          <label for="bt1" class="mb-0">Less than 15 Lakhs</label>
+        </div>
+        <br />
+        <br />
+        <div class="radio-btn-wrap col-6">
+          <input
+            type="radio"
+            id="bt2"
+            name="loan"
+            class="rdbtn"
+            value="15 Lakhs to 50 Lakhs"
+          />
+          <span class="checkmark"></span>
+          <label for="bt2" class="mb-0"
+            >15 Lakhs to 50 Lakhs</label
+          >
+        </div>
+        <br />
+        <br />
+        <div class="radio-btn-wrap col-6">
+          <input
+            type="radio"
+            id="bt3"
+            name="loan"
+            class="rdbtn"
+            value="50 lakhs and above"
+          />
+          <span class="checkmark"></span>
+          <label for="bt3" class="mb-0">50 lakhs and above</label>
+        </div>
+      </div>
+      <div class="error" id="requiredloanId"></div>
+    </div>
+    <div class="form-group" style="display: none">
+      <div class="form-control-wrap icons Purpose-of-loan">
+        <div class="select-text">Property Identified</div>
+        <select
+          class="form-control selectCtrl"
+          id="ddlPropertyIdentified"
+          name="ddlPropertyIdentified"
+          required=""
+        >
+          <option value="">Property Identified</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div class="error"></div>
+      </div>
+    </div>
+    <!-- <div class="form-group Salaried">
+      <div class="form-control-wrap icons Purpose-of-loan">
+        <div class="select-text">Salary received as</div>
+        <select class="form-control selectCtrl" id="ddlSalaryInCash" name="ddlPurposeOfLoanHL" required="">
+          <option value="" selected="" disabled="">Salary received as</option>
+          <option value="No">Bank account transfer</option>
+          <option value="Yes">Cash in hand</option>
+        </select>
+        <div class="error"></div>
+      </div>
+    </div> -->
+    <!--  -->
+    <div id="Div_Salary_Mode" class="form-group Salaried">
+      <div
+        class="form-control-wrap icons Purpose-of-loan radio-custom"
+      >
+        Salary received as<br />
+        <input
+          type="radio"
+          name="SalaryMode"
+          id="AccountTransfer"
+          value="No"
+          checked="true"
+        />
+        <label for="AccountTransfer" id="salaccount"
+          >Account Transfer</label
+        >
+        <input
+          type="radio"
+          name="SalaryMode"
+          id="Cash"
+          value="Yes"
+        />
+        <label for="Cash" id="Salcash">Cash</label>
+        <div class="error"></div>
+      </div>
+    </div>
+
+    <!--  -->
+    <!-- <div class="form-group">
+      <div class="form-control-wrap icons monthly-salary">
+        <input
+          class="form-control commaSeparated GrossMonthly monthlySalary"
+          id="nonsalReqAMTHL"
+          name="nonsalReqAMT"
+          type="tel"
+          maxlength="11"
+          placeholder="Required Loan Amount"
+          required=""
+        />
+        <div class="error"></div>
+      </div>
+    </div> -->
+    <div class="form-group">
+      <div class="form-control-wrap icons Where-do-you-live">
+        <input
+          class="form-control selectCtrl"
+          id="pincode"
+          name="pincode"
+          type="text"
+          placeholder="Enter Your Pincode"
+          onkeypress="return /[0-9]/i.test(event.key)"
+          maxlength="6"
+          minlength="6"
+          required=""
+        />
+        <div class="error" id="pincode_error"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-control-wrap icons Where-do-you-live">
+        <input
+          class="form-control selectCtrl cityList"
+          id="ddlCityHL"
+          name="ddlCityHL"
+          type="text"
+          placeholder="Currently Residing City?"
+          onkeypress="return /[a-z]/i.test(event.key)"
+          required=""
+          disabled
+        />
+        <!-- <div class="error"></div> -->
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-control-wrap icons location">
+        <input
+          class="form-control selectCtrl propertyLocationList"
+          id="txtPropertyLocationHL"
+          name="txtPropertyLocationHL"
+          type="text"
+          placeholder="Property Location"
+          onkeypress="return /[a-z]/i.test(event.key)"
+          required="true"
+        />
+        <div class="error"></div>
+      </div>
+    </div>
+    <div class="form-group Salaried">
+      <div class="form-control-wrap icons dob">
+        <input id="hdnAge" type="hidden" />
+        <input
+          class="form-control"
+          id="txtDOBHL"
+          name="txtDOBHL"
+          type="text"
+          placeholder="Date of Birth"
+          readonly=""
+          required=""
+        />
+        <div class="error"></div>
+      </div>
+    </div>
+    <div class="form-group Salaried onDateChange">
+      <div class="form-control-wrap icons company">
+        <input
+          class="form-control companyList"
+          id="txtCompanyHL"
+          name="txtCompanyHL"
+          type="text"
+          placeholder="Company (Pick from our list)"
+          required=""
+        />
+        <div class="error"></div>
+      </div>
+    </div>
+    <div class="form-group Salaried">
+      <div
+        class="form-control-wrap icons Gross-fixed-monthly-salary"
+      >
+        <input
+          class="form-control GrossMonthly GrossSalary co-applicant-check"
+          id="txtGrossSalaryHL"
+          name="txtGrossSalaryHL"
+          type="tel"
+          maxlength="11"
+          placeholder="Gross fixed monthly salary"
+          required=""
+        />
+        <div class="error"></div>
+      </div>
+    </div>
+    <div class="form-group nonSalaried">
+      <div class="form-control-wrap icons monthly-salary">
+        <input
+          class="form-control GrossMonthly monthlySalary co-applicant-check"
+          id="txtNetSalaryHL"
+          name="txtNetSalaryHL"
+          type="tel"
+          maxlength="11"
+          placeholder="Average Monthly Income"
+          required=""
+        />
+        <div class="error"></div>
+      </div>
+    </div>
+    <div class="form-group Salaried">
+      <div class="form-control-wrap icons emi">
+        <input
+          class="form-control"
+          id="txtEMIHL"
+          name="txtEMIHL"
+          type="tel"
+          placeholder="EMI of existing loan, if any"
+        />
+        <div class="error"></div>
+      </div>
+    </div>
+    <!-- <div class="form-group">
+      <div class="form-control-wrap icons Purpose-of-loan">
+        <input
+        class="form-control"
+        id="txtPAN"
+        name="txtPAN"
+        type="text"
+        placeholder="PAN Number"
+        required=""
+      />
+      <div class="error"></div>
+      </div>
+      
+    </div> -->
+    <!-- Coapplicant  -->
+
+    <div
+      id="coapplicant-option"
+      class="form-group hide co-applicant-section co-applicant-option"
+    >
+      <div class="form-control-wrap icons name radio-custom">
+        Have any co-applicant?<br />
+        <input
+          type="radio"
+          name="CoApplicant"
+          id="CoApplicant"
+          value="Yes"
+        />
+        <label for="AccountTransfer">Yes</label>
+        <input
+          type="radio"
+          name="CoApplicant"
+          id="No-CoApplicant"
+          value="No"
+          checked="true"
+        />
+        <label for="Cash">No</label>
+        <div class="error"></div>
+      </div>
+    </div>
+
+    <div
+      class="form-group hide co-applicant-section co-applicant-salary"
+    >
+      <div
+        class="form-control-wrap icons Gross-fixed-monthly-salary"
+      >
+        <input
+          class="form-control"
+          id="coapplicant-salary"
+          name="coapplicant-salary"
+          type="tel"
+          maxlength="11"
+          placeholder="Monthly Salary of co-applicant"
+          required=""
+        />
+        <div class="error"></div>
+      </div>
+    </div>
+
+    <!-- Coapplicant -->
+    <div class="clr"></div>
+    <div class="checkboxWrap">
+      <input
+        class="checkbox"
+        id="a"
+        type="checkbox"
+        name="a"
+        value=""
+        required=""
+        checked="true"
+      />
+
+      <label for="a">
+        <div class="check"></div>
+        <p>
+          I agree to ICICI Bank’s
+          <a
+            style="color: blue"
+            href="https://www.icicibank.com/terms-condition/terms-and-conditions.page"
+            target="_blank"
+            >Terms & Conditions
+          </a>
+          and
+          <a
+            id="mitcBtn"
+            style="color: blue"
+            onclick="showModal()"
+            >Most Important Terms & Conditions</a
+          >
+        </p>
+
+        <p>
+          I also authorize ICICI Bank and its representatives to
+          call/e-Mail/SMS/WhatsApp me regarding Home loan
+          application.
+        </p>
+      </label>
+      <div class="error"></div>
+    </div>
+
+    <div class="clr"></div>
+    <div class="form-group" id="captcha_div">
+      <div
+        id="gogl_captcha"
+        class="g-recaptcha"
+        data-sitekey="6LeRQnEeAAAAAAJgZz2PnoWITvb3S6tgcGeFdd14"
+        data-callback="verifyCaptcha"
+      ></div>
+      <div id="g-recaptcha-error" class="error"></div>
+    </div>
+    <div class="btnWrapper">
+      <input
+        class="getOffer"
+        id="btnSubmitHL"
+        type="button"
+        value="Calculate Now"
+      />
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</form>

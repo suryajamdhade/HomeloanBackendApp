@@ -1,6 +1,6 @@
 package com.re.app.controller;
 
-import java.io.IOException;		
+import java.io.IOException;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -55,6 +55,7 @@ public class CutomerController {
 
 	@Autowired
 	private CustomerService customerService;
+	
 	@Autowired
 	private ExistingLoanBankService existingLoanBankService;
 	@Autowired
@@ -135,26 +136,25 @@ public class CutomerController {
 			@RequestBody(required = false) BusinessProfession businessProfession) {
 
 		customerService.setProfessionDetails(custId, professionType, salariedProfession, businessProfession);
-			return null;
+		return null;
 	}
-			
-	
-	//adding co applicant details
-	
-	@PostMapping("/{custId}/addCoApplicantDetails")
-			public ResponseEntity<CoApplicantDetails> addCoApplicantDetails(@PathVariable int custId,  @RequestBody CoApplicantDetails coApplicantDetails) {
-				CoApplicantDetails newCoApplicantDetails = customerService.setCoApplicantDetails(custId, coApplicantDetails);
-				return new ResponseEntity<>(newCoApplicantDetails, HttpStatus.CREATED);
-			}
 
-			@PutMapping("/update")
-			public ResponseEntity<CoApplicantDetails> updateCoApplicantDetails(@RequestBody CoApplicantDetails coApplicantDetails) {
-				
-				CoApplicantDetails addCoApplicantDetails = customerService.updateCoApplicantDetails(coApplicantDetails);
-				
-				return new ResponseEntity<>(addCoApplicantDetails, HttpStatus.OK);
-			
-					
+	// adding co applicant details
+
+	@PostMapping("/{custId}/addCoApplicantDetails")
+	public ResponseEntity<CoApplicantDetails> addCoApplicantDetails(@PathVariable int custId,
+			@RequestBody CoApplicantDetails coApplicantDetails) {
+		CoApplicantDetails newCoApplicantDetails = customerService.setCoApplicantDetails(custId, coApplicantDetails);
+		return new ResponseEntity<>(newCoApplicantDetails, HttpStatus.CREATED);
+	}
+
+	@PutMapping("/updateCoApplicantDetails")
+	public ResponseEntity<CoApplicantDetails> updateCoApplicantDetails(
+			@RequestBody CoApplicantDetails coApplicantDetails) {
+
+		CoApplicantDetails addCoApplicantDetails = customerService.updateCoApplicantDetails(coApplicantDetails);
+
+		return new ResponseEntity<>(addCoApplicantDetails, HttpStatus.OK);
 
 	}
 

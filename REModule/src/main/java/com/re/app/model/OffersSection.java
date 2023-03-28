@@ -23,4 +23,11 @@ public class OffersSection {
 	private int offerProcessingFees;
 	private int offerTenure;
 	
+
+	private int id;
+	private String landmark;
+	private String areaname;
+	private String city;
+	private int    pincode;
+	private String state;
 }

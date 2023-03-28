@@ -1,6 +1,10 @@
 package com.cm.app.service;
 
+
 import java.util.List;
+
+import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,10 +25,14 @@ public class CreditManagerServiceImpl implements CreditManagerService {
 
 	@Autowired
 	private LoanApplicationRepository loanApplicationRepository;
+
 	
 	@Autowired
 	private APFDetailsRepository APFRepo;
 	
+
+
+
 	@Override
 	public int getCreditScore(int customerId) throws CreditScoreServiceException {
 
@@ -44,29 +52,42 @@ public class CreditManagerServiceImpl implements CreditManagerService {
 
 	@Override
 	public String updateCreditScore(int customerId, int creditScore) {
-		
+
 		LoanApplication byCustomerId = loanApplicationRepository.getByCustomerId(customerId);
-		
-		 if (byCustomerId == null) {
-		        return "No loan application found for customer " + customerId;
-		    }
-		    byCustomerId.setCreditScore(creditScore);
-		    loanApplicationRepository.save(byCustomerId);
-		    return "Credit score updated for customer " + customerId;
-	
+
+		if (byCustomerId == null) {
+			return "No loan application found for customer " + customerId;
+		}
+		byCustomerId.setCreditScore(creditScore);
+		loanApplicationRepository.save(byCustomerId);
+		return "Credit score updated for customer " + customerId;
+
 	}
 
 	@Override
-	public void approveOrRejectLoan(int customerId, boolean isApproved) {
-		
-		LoanApplication byCustomerId = loanApplicationRepository.getByCustomerId(customerId);
-		
-		if(isApproved) {
-			byCustomerId.setStatus("Approved");
-		}else {
-			byCustomerId.setStatus("Rejected");
+	public String approveLoanApplication(int id) {
+		Optional<LoanApplication> loanApplicationOptional = loanApplicationRepository.findById(id);
+		if (loanApplicationOptional.isPresent()) {
+			LoanApplication loanApplication = loanApplicationOptional.get();
+			loanApplication.setStatus("Approved");
+			loanApplicationRepository.save(loanApplication);
+			return "Loan application " + id + " approved";
+		} else {
+			return "Loan application " + id + " not found";
 		}
-		
+	}
+
+	@Override
+	public String rejectLoanApplication(int id) {
+		Optional<LoanApplication> loanApplicationOptional = loanApplicationRepository.findById(id);
+		if (loanApplicationOptional.isPresent()) {
+			LoanApplication loanApplication = loanApplicationOptional.get();
+			loanApplication.setStatus("Rejected");
+			loanApplicationRepository.save(loanApplication);
+			return "Loan application " + id + " rejected";
+		} else {
+			return "Loan application " + id + " not found";
+		}
 	}
 
 	@Override

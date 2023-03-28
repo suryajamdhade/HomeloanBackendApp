@@ -1,15 +1,21 @@
 
 
 package com.adm.app.controller;
-import java.io.Serializable;
+
+import java.io.Serializable;	
 
 import javax.servlet.Servlet;
 import javax.servlet.http.HttpServlet;
 
 import org.apache.catalina.User;
+
+import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;	
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +33,7 @@ import com.adm.app.service.AdminService;
 
 @RestController
 @RequestMapping("/admin")
+@CrossOrigin
 public class AdminController {
 
 	@Autowired
@@ -45,21 +52,25 @@ public class AdminController {
 	@PostMapping("/employee")
 	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee ) {
 
-		Employee addedemp = adminservice.addemployee(employee);
+
+		Employee addedemp = adminservice.addEmployee(employee);
     
 		return new ResponseEntity<Employee>(addedemp,HttpStatus.CREATED);
+
+ 
 	}
 	
 	@GetMapping("/employee/{empId}")
-	public ResponseEntity<?>getEmployeeByUsername(@PathVariable int empId){
+	public ResponseEntity<?>getEmployeeById(@PathVariable int empId){
 		 
 		return adminservice.getEmployeeById(empId);
+	
 	}
 	
 	@PutMapping
 	public ResponseEntity<Employee>updateEmployee(@RequestBody Employee employee){
 		
-		Employee updatedemployee = adminservice.addemployee(employee);
+		Employee updatedemployee = adminservice.addEmployee(employee);
 		return new ResponseEntity<Employee>(updatedemployee	,HttpStatus.CREATED);
 		
 	}
@@ -73,4 +84,18 @@ public class AdminController {
 		
 	}
 
+
+	@GetMapping("/employee")
+	public ResponseEntity<List<Employee>>getEmployees(){
+		 
+		List<Employee> employees = adminservice.getEmployees();
+		return new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
+	}
+	
+	@GetMapping("/home")
+	public String home() {
+		return "Admin controller Home";
+	}
+	
+	
 }

@@ -1,2 +1,8 @@
-<h2>Hello</h2>
-<app-enquiry></app-enquiry>
+<ng-container *ngIf="!isLoggedIn">
+    <app-navbar></app-navbar>
+    <app-login (loggedIn)="onLoggedIn($event)"></app-login>
+  </ng-container>
+ 
+  <router-outlet></router-outlet> 
+
+

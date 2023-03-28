@@ -18,13 +18,13 @@ public class EmployeeBankDetails {
 
 	    @Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
-		private int bankId;
+		private int id;
 		private String bankName;
 		private String branchName;
 		private long branchMicrCode;
 		private long branchContactNo;
 		private String branchEmailId;
- 		private String branchifscCode;
+ 		private String branchIfscCode;
  		private String branchType;
 
 		

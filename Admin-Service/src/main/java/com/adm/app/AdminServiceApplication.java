@@ -20,4 +20,10 @@ public class AdminServiceApplication {
 //		
 //		return new BCryptPasswordEncoder();
 //	}
+
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder(11);
+	}
 }

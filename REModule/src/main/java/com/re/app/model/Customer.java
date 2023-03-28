@@ -162,8 +162,7 @@ public class Customer {
 //	@OneToOne(cascade = CascadeType.ALL)
 //	private Cibil cCibil;
 //
-//	@OneToOne(cascade = CascadeType.ALL)
-//	private LoanDetails cLoanDetails;
+
 ////
 //	@OneToOne(cascade = CascadeType.ALL)
 //	private ExistingLoan cExisitngLoan;

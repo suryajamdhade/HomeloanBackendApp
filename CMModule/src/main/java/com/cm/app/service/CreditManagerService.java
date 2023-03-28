@@ -10,7 +10,11 @@ public interface CreditManagerService {
 
 	String updateCreditScore(int customerId, int creditScore);
 
-	void approveOrRejectLoan(int customerId, boolean isApproved);
+	
+
+	String approveLoanApplication(int id);
+
+	String rejectLoanApplication(int id);
 
 	void addAPFDetails(APFDetails apfDetails);
 
