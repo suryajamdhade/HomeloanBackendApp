@@ -20,9 +20,9 @@ public class PropertyTechnical {
 	@GeneratedValue(strategy = GenerationType.IDENTITY,generator = "PropertyTechnical_seq")
 	@SequenceGenerator(initialValue = 1,allocationSize = 1, name = "PropertyTechnical_seq")
 	private int ptId;
-	private String proPhysicalHealthStatus;
+	private String proPhysicalHealthStatus;// ok
 	private int proMarketValue;
-	private String proconstructionArea;
-	private int proconstructionPrice;
+	private String proconstructionArea;//600 sq. ft
+	private int proconstructionPrice; // 30
 
 }

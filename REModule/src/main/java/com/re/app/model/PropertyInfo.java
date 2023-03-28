@@ -23,6 +23,7 @@ public class PropertyInfo {
 	private String propertyType;
     private String propertyArea;
 	private double propertyPrice;
+	private String projectName; 
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private PropertLegal propertyLegal;

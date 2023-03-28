@@ -1,3 +1,4 @@
+
 package com.cm.app.controller;
 
 import java.util.HashMap;
@@ -18,8 +19,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
+import com.cm.app.model.APFDetails;
 import com.cm.app.service.CreditManagerService;
+
+
 
 @RequestMapping("/cm-api")
 @RestController
@@ -38,6 +44,28 @@ public class CreditManagerController {
 
 	}
 
+<<<<<<< HEAD
+	
+	
+	@GetMapping("/cdetails") // implementation of third party application
+    public  RedirectView getCreditDetails() {
+     
+	 String url ="https://check.onescore.app/onescoreweb/phone";
+	 RedirectView redirectView=new RedirectView();
+	 redirectView.setUrl(url);
+	 return redirectView;
+	}
+	
+	//update credit score in the database
+	@PostMapping("/credit-score/{customerId}")
+	public ResponseEntity<Integer> updateCreditScore(@PathVariable int customerId, @RequestParam int creditScore) {
+		creditManagerService.updateCreditScore(customerId, creditScore);
+		return ResponseEntity.ok(creditScore);
+		 }
+
+
+=======
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 	// update credit score in the database
 	@PostMapping("/credit-score/{custId}")
 	public String updateCreditScore(@PathVariable int custId, @RequestParam(required = false) Integer creditScore) {
@@ -60,9 +88,41 @@ public class CreditManagerController {
 		return approveLoanApplication;
 		
 	
+<<<<<<< HEAD
+	}
+    
+	//Adding APFDetails
+	
+
+	@PostMapping("/addAPFDetails")
+	public ResponseEntity<APFDetails>saveAPFDetails(@RequestBody APFDetails apfDetails){
+		
+		creditManagerService.addAPFDetails(apfDetails);
+		return new ResponseEntity<APFDetails>(apfDetails, HttpStatus.CREATED);
+	
+	}
+	
+	//retrieving APFDetails by ID
+	
+	@GetMapping("/getAPFDetail/{APFId}")
+	public ResponseEntity<APFDetails>getAPFDetails(@PathVariable int APFId){
+		APFDetails apfById = creditManagerService.getAPFById(APFId);
+	    return ResponseEntity.ok(apfById);
+	}
+	
+	//retrieving all information APFDetails
+	
+	@GetMapping
+	public ResponseEntity<List<APFDetails>>getAllAPFDetails(){
+		List<APFDetails> allAPF = creditManagerService.getAllAPF();
+	   return new ResponseEntity<List<APFDetails>>(allAPF,HttpStatus.OK);
+	}
+
+=======
 	}
 
 	
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 	// reject a loan
 		@PatchMapping("/rejectLoanApplication")
 		public String rejectLoanApplication(@RequestParam("id") int id) {
@@ -74,3 +134,4 @@ public class CreditManagerController {
 		}
 
 }
+

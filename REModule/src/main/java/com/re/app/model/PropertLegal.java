@@ -21,13 +21,13 @@ public class PropertLegal {
 	@GeneratedValue(strategy = GenerationType.IDENTITY,generator = "PropertyLegal_seq")
 	@SequenceGenerator(initialValue = 1,allocationSize = 1, name = "PropertyLegal_seq")
 	private int plId;
-	private String legalDisputestatus;
+	private String legalDisputestatus; // no
 	@Lob
-	private byte[] Noc;
+	private byte[] Noc;// r8
 	@Lob
-	private byte[] titleDeed;
+	private byte[] titleDeed;// r8
 	@Lob
-	private byte[] ownershipPapers;
+	private byte[] ownershipPapers;// 
 	@Lob
 	private byte[] commencementCertificate;
 	

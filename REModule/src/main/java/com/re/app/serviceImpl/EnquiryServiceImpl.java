@@ -34,8 +34,10 @@ public class EnquiryServiceImpl implements EnquiryService {
         	return ResponseEntity.ok(EnqfindById.get());
          }
         else {
-			return ResponseEntity.badRequest().body("Enquiry with Id "+id+" does not exist");
-		}
+			 ResponseEntity<String> message = ResponseEntity.badRequest().body("Enquiry with Id "+id+" does not exist");
+		     
+			 return message;
+        }
 		
 	}
 

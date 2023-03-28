@@ -1,4 +1,4 @@
-package com.adm.app.model;
+package com.re.app.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,28 +10,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmployeeAddress {
+@Entity
+public class OffersSection {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-<<<<<<< HEAD
-
-	private int empAddId;
-	private String empState;
-	private String empCity;
-	private String empLandmark;
-	private int empPincode;
-
-=======
->>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
-	private int id;
-	private String state;
-	private String city;
-	private String landmark;
-	private int pincode;
-
+	private int offerID;
+	private long offerAmount;
+	private float offerRoi;
+	private int offerProcessingFees;
+	private int offerTenure;
 	
+
+	private int id;
+	private String landmark;
+	private String areaname;
+	private String city;
+	private int    pincode;
+	private String state;
 }

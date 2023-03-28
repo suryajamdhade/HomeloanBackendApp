@@ -58,5 +58,8 @@ public class Customer {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private PropertyInfo cPropertyInfo;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private OffersSection offersec;
 
 }

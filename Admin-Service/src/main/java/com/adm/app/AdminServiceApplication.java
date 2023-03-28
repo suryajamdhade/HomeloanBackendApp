@@ -15,6 +15,15 @@ public class AdminServiceApplication {
 		SpringApplication.run(AdminServiceApplication.class, args);
 	}
 
+<<<<<<< HEAD
+//	@Bean
+//	public PasswordEncoder passwordEncoder() {
+//		
+//		return new BCryptPasswordEncoder();
+//	}
+
+=======
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {

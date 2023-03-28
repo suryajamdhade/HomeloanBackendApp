@@ -28,6 +28,5 @@ public class EmployeeBankDetails {
  		private String branchType;
 
 		
-		@OneToOne
-		private Bankaddress bankaddress;
+	
 }

@@ -1,10 +1,15 @@
 package com.adm.app.model;
 
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 
@@ -30,6 +35,14 @@ public class Employee {
 	private String designation;
 	private String vintage;
 	private String role;
+<<<<<<< HEAD
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private EmployeeAddress empAddress;
+=======
+>>>>>>> 16749be6de6c99a8cfd39ef5e0fa2bb83dc7444d
 	
 	
+	
+
 }

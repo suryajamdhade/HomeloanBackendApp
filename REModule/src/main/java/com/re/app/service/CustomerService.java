@@ -1,7 +1,7 @@
 package com.re.app.service;
 
 
-import com.re.app.model.AccountDetails;
+import com.re.app.model.AccountDetails;	
 
 import java.util.List;
 
