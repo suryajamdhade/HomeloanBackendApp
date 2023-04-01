@@ -17,7 +17,8 @@ import { AdminRoutingModule } from './admin-routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ],exports:[
     AddEmployeeComponent,
     ViewEmployeeComponent,
