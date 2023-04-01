@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { JwtResponse } from './admin/model/JwtResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,8 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
 
-  login(username: string, password: string ){
+  login(username: string, password: string ) : Observable<JwtResponse>{
     const url = `${this.loginUrl}?username=${username}&password=${password}`;
-    return this.http.get(url, { responseType: 'text' });
+    return this.http.post<JwtResponse>(url, {});
   }
 }

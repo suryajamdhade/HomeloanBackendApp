@@ -13,6 +13,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { AdminModule } from './admin/admin.module';
 import { AdminRoutingModule } from './admin/admin-routing.module';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+
+
 
 @NgModule({
   declarations: [

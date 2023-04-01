@@ -1,8 +1,10 @@
 <ng-container *ngIf="!isLoggedIn">
-    <app-navbar></app-navbar>
-    <app-login (loggedIn)="onLoggedIn($event)"></app-login>
-  </ng-container>
+  <app-navbar></app-navbar>
+  
  
-  <router-outlet></router-outlet> 
+  <router-outlet></router-outlet>
+  
+</ng-container>
+
 
 

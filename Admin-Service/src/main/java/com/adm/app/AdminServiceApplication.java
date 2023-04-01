@@ -16,8 +16,5 @@ public class AdminServiceApplication {
 	}
 
 	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder(11);
-	}
+
 }
